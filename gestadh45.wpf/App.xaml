@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application StartupUri="MainWindow.xaml" xmlns:vm="clr-namespace:gestadh45.business.ViewModel;assembly=gestadh45.business" xmlns:tools="clr-namespace:gestadh45.wpf.Tools" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="gestadh45.wpf.App" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Templates\ToggleButton.xaml" />
+				<ResourceDictionary Source="Styles\BaseStyles.xaml" />
+				<ResourceDictionary Source="Styles\ButtonStyles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		
+			<tools:BooleanInversionConverter p6:Key="BooleanInversionConverter" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
+			<tools:HexaColorStringToBrushConverter p6:Key="HexaToBrush" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
+			<BooleanToVisibilityConverter p6:Key="boolToVisibility" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
+			<tools:BooleanToBrushConverter p6:Key="boolToBrush" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
+			
+			<!-- Converters pour les enums -->
+			<tools:JourSemaineToStringConverter p6:Key="JourSemaineToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
+			<tools:StatutInscriptionToStringConverter p6:Key="StatutInscriptionToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
+			<tools:StatutVerificationToStringConverter p6:Key="StatutVerificationToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
+			<tools:SexeToStringConverter p6:Key="SexeToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
+
+			<tools:CodeGraphToStringConverter p6:Key="CodeGraphToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
+			<tools:CodeReportToStringConverter p6:Key="CodeReportToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
+			<tools:CodeUCToStringConverter p6:Key="CodeUCToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
+
+			<tools:StatutInscriptionToBrushConverter p6:Key="StatutInscriptionToBrush" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
+			<tools:StatutVerificationToBrushConverter p6:Key="StatutVerificationToBrush" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
+
+			<!-- multi converter -->
+			<tools:ValueConverterGroup p6:Key="InvertAndVisibilitate" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml">
+				<tools:BooleanInversionConverter />
+				<BooleanToVisibilityConverter />
+			</tools:ValueConverterGroup>
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>

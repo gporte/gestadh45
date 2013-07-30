@@ -1,0 +1,119 @@
+﻿
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using gestadh45.business.Enums;
+using gestadh45.business.PersonalizedMsg;
+using gestadh45.dal;
+using System;
+using System.Windows.Input;
+namespace gestadh45.business.ViewModel
+{
+	public abstract class VMUCBase : VMApplicationBase, IDisposable
+	{
+		/// <summary>
+		/// Obtient/Définit le code de l'UC parent
+		/// </summary>
+		public CodesUC UCParentCode { get; set; }
+
+		/// <summary>
+		/// Obtient/Définit le code de l'UC courant
+		/// </summary>
+		public CodesUC UCCode { get; set; }
+		
+		/// <summary>
+		/// GUID de l'UC
+		/// </summary>
+		public Guid UCGuid { get; internal set; }
+
+		/// <summary>
+		/// GUID de l'UC parent
+		/// </summary>
+		public Guid UCParentGuid { get; set; }
+
+		/// <summary>
+		/// Obtient/Définit un booléen indiquant si l'UC s'affiche dans une fenêtre (True) ou dans l'écran principal
+		/// </summary>
+		public bool IsWindowMode { get; set; }
+		
+		/// <summary>
+		/// Obtient/Définit le contexte de l'UC
+		/// </summary>
+		protected GestAdhContext Context { get; set; }
+
+		#region constructeurs
+		/// <summary>
+		/// Constructeur sans paramètres. Aucun contexte n'est défini
+		/// </summary>
+		protected VMUCBase() : base() {
+			this.UCParentCode = CodesUC.GestionInfosClub;
+			this.UCCode = CodesUC.GestionInfosClub;
+			this.UCGuid = Guid.NewGuid();
+			this.CreateOpenWindowCommand();
+			this.CreateReportCommand();
+			
+			Messenger.Default.Send(new NMShowInfosDataSource(string.Empty));
+		}
+		
+		/// <summary>
+		/// Constructeur définissant le contexte de l'UC à l'aide de la chaîne de connexion passée en paramètre
+		/// </summary>
+		/// <param name="userConnectionString">Chaîne de connection de l'utilisateur</param>
+		protected VMUCBase(string userConnectionString) : this() {
+			// ensuite vu qu'on a une chaîne de connexion, on finalise l'initialisation
+			this.Context = new GestAdhContext(userConnectionString);			
+
+			// envoi du message d'affichage du datasource
+			Messenger.Default.Send(new NMShowInfosDataSource(this.Context.Database.Connection.ConnectionString));
+		}
+		#endregion
+
+		#region OpenWindowCommand
+		public ICommand OpenWindowCommand { get; internal set; }
+
+		protected void CreateOpenWindowCommand() {
+			this.OpenWindowCommand = new RelayCommand<CodesUC>(
+				this.ExecuteOpenWindowCommand,
+				this.CanExecuteOpenWindowCommand
+			);
+		}
+
+		public virtual bool CanExecuteOpenWindowCommand(CodesUC codeUc) {
+			return true;
+		}
+
+		public virtual void ExecuteOpenWindowCommand(CodesUC codeUc) {
+			Messenger.Default.Send<NMOpenWindow>(
+				new NMOpenWindow(Tuple.Create(codeUc, this.UCGuid))
+			);
+		}
+		#endregion
+
+		#region ReportCommand
+		public ICommand ReportCommand { get; set; }
+
+		protected void CreateReportCommand() {
+			this.ReportCommand = new RelayCommand<CodesReport>(
+				this.ExecuteReportCommand,
+				this.CanExecuteReportCommand
+			);
+		}
+
+		public virtual bool CanExecuteReportCommand(CodesReport codeReport) {
+			return true;
+		}
+
+		public virtual void ExecuteReportCommand(CodesReport codeReport) { }
+		#endregion
+
+		public void Dispose() {
+			this.Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+		
+		protected virtual void Dispose(bool disposing) {
+			if(disposing) {
+				this.Context.Dispose();
+			}
+		}
+	}
+}

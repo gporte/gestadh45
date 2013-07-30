@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="gestadh45.wpf.UserControls.MainScreenUC.MainScreenCheckUC"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:enum="clr-namespace:gestadh45.business.Enums;assembly=gestadh45.business"
+             xmlns:res="clr-namespace:gestadh45.wpf.Ressources"
+			 mc:Ignorable="d" 
+			 d:DesignHeight="400" d:DesignWidth="600" Loaded="UserControl_Loaded">
+	<DockPanel Margin="5,5,5,5">
+		<TextBlock DockPanel.Dock="Top"
+				Text="{Binding Source={x:Static enum:CodesUC.MainScreenCheck}, Converter={StaticResource ResourceKey=CodeUCToString}}"
+				HorizontalAlignment="Stretch" Margin="0,5,0,10" 
+				TextAlignment="Center" Style="{StaticResource ResourceKey=titreUC}" />
+	
+		<StackPanel Orientation="Vertical">
+			<GroupBox Header="{x:Static res:UI_Labels.Head_Options}" Width="500" HorizontalAlignment="Center">
+				<CheckBox IsChecked="{Binding Path=AutoOpenLastDb}">
+					<TextBlock Text="{x:Static res:UI_Labels.MainScreen_ActiverChargementAuto}" />
+				</CheckBox>
+			</GroupBox>
+			
+			<Button	Width="150"	Height="25"	Margin="0,20,0,10" Command="{Binding Path=OpenLastDbCommand}">
+				<TextBlock Text="{x:Static res:UI_Labels.Btn_OuvrirDerniereBdd}" />
+			</Button>
+			
+			<TextBlock HorizontalAlignment="Center">
+				<TextBlock.Style>
+					<Style TargetType="TextBlock">
+						<Setter Property="Text" Value="{Binding Path=LastDbConnectionString}" />
+						
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding Path=LastDbConnectionString}" Value="{x:Static sys:String.Empty}">
+								<Setter Property="Text" Value="{x:Static res:UI_Labels.MainScreen_AucuneChaineDeConnexion}" />
+							</DataTrigger>
+						
+							<DataTrigger Binding="{Binding Path=LastDbConnectionString}" Value="{x:Null}">
+								<Setter Property="Text" Value="{x:Static res:UI_Labels.MainScreen_AucuneChaineDeConnexion}" />
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</TextBlock.Style>
+			</TextBlock>
+		
+			<Button	Width="150"	Height="25"	Margin="0,20,0,10" Command="{Binding Path=OpenDbCommand}">
+				<TextBlock Text="{x:Static res:UI_Labels.Btn_OuvrirBdd}" />
+			</Button>
+		
+			<Button	Width="150"	Height="25"	Margin="0,20,0,10" Command="{Binding Path=NewDbCommand}">
+				<TextBlock Text="{x:Static res:UI_Labels.Btn_CreerBdd}" />
+			</Button>
+			
+			<Button	Width="150"	Height="25"	Margin="0,20,0,10" Command="{Binding Path=ExitCommand}">
+				<TextBlock Text="{x:Static res:UI_Labels.Btn_Quitter}" />
+			</Button>
+		</StackPanel>
+	</DockPanel>
+</UserControl>

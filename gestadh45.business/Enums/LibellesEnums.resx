@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Graph_RemplissageGroupes" xml:space="preserve">
+    <value>Remplissage des groupes</value>
+  </data>
+  <data name="Graph_RepartitionAdherentsVilles" xml:space="preserve">
+    <value>Répartition des adhérents par ville</value>
+  </data>
+  <data name="Graph_RepartitionHommesFemmes" xml:space="preserve">
+    <value>Répartition H/F</value>
+  </data>
+  <data name="Graph_RepartitionLicencies" xml:space="preserve">
+    <value>Répartition licenciés/non licenciés</value>
+  </data>
+  <data name="Graph_RepartitionMajeursMineurs" xml:space="preserve">
+    <value>Répartition majeurs/mineurs</value>
+  </data>
+  <data name="Graph_RepartitionResidentsExterieurs" xml:space="preserve">
+    <value>Répartition résidents/extérieurs</value>
+  </data>
+  <data name="Graph_RepartitionSections" xml:space="preserve">
+    <value>Répartition des adhérents par section</value>
+  </data>
+  <data name="LibelleAbsent" xml:space="preserve">
+    <value>&lt;LIBELLE ABSENT&gt;</value>
+  </data>
+  <data name="Report_CertificatsManquants" xml:space="preserve">
+    <value>Certificats médicaux manquants</value>
+  </data>
+  <data name="Report_ErrGenerationCodeInconnu" xml:space="preserve">
+    <value>Aucun rapport n'a été généré - Code rapport inconnu</value>
+  </data>
+  <data name="Report_InventaireCompletEquipementExcel" xml:space="preserve">
+    <value>Inventaire complet</value>
+  </data>
+  <data name="Report_InventaireSimpleEquipementExcel" xml:space="preserve">
+    <value>Inventaire simple</value>
+  </data>
+  <data name="Report_ListeAdherents" xml:space="preserve">
+    <value>Liste des adhérents</value>
+  </data>
+  <data name="Report_RepartitionAdherentsAge" xml:space="preserve">
+    <value>Répartition des adhérents par âge/sexe/ville</value>
+  </data>
+  <data name="Report_RepartitionAdherentsAgeLicenceVille" xml:space="preserve">
+    <value>Répartition des adhérents par âge/licence/ville</value>
+  </data>
+  <data name="UC_Backup" xml:space="preserve">
+    <value>Exports</value>
+  </data>
+  <data name="UC_ConsultationGroupes" xml:space="preserve">
+    <value>Groupes</value>
+  </data>
+  <data name="UC_ConsultationSections" xml:space="preserve">
+    <value>Sections</value>
+  </data>
+  <data name="UC_EcranReporting" xml:space="preserve">
+    <value>Rapports</value>
+  </data>
+  <data name="UC_EcranStatistiques" xml:space="preserve">
+    <value>Graphiques</value>
+  </data>
+  <data name="UC_FormulaireGroupe" xml:space="preserve">
+    <value>Groupe</value>
+  </data>
+  <data name="UC_FormulaireSection" xml:space="preserve">
+    <value>Section</value>
+  </data>
+  <data name="UC_NettoyageCNIL" xml:space="preserve">
+    <value>Nettoyage CNIL</value>
+  </data>
+  <data name="UC_MainScreenCheck" xml:space="preserve">
+    <value>Démarrage</value>
+  </data>
+  <data name="UC_GestionAdherents" xml:space="preserve">
+    <value>Gestion des adhérents
+</value>
+  </data>
+  <data name="UC_GestionInscriptions" xml:space="preserve">
+    <value>Gestion des inscriptions pour la saison courante</value>
+  </data>
+  <data name="UC_GestionGroupes" xml:space="preserve">
+    <value>Gestion des groupes pour la saison courante</value>
+  </data>
+  <data name="UC_GestionVilles" xml:space="preserve">
+    <value>Gestion des villes</value>
+  </data>
+  <data name="UC_GestionInfosClub" xml:space="preserve">
+    <value>Information du club</value>
+  </data>
+  <data name="UC_GestionSaisons" xml:space="preserve">
+    <value>Gestion des saisons</value>
+  </data>
+  <data name="UC_GestionSections" xml:space="preserve">
+    <value>Gestion des sections</value>
+  </data>
+  <data name="UC_GestionTranchesAge" xml:space="preserve">
+    <value>Gestion des tranches d'âge</value>
+  </data>
+  <data name="UC_GestionMarques" xml:space="preserve">
+    <value>Gestion des marques</value>
+  </data>
+  <data name="UC_GestionDureesDeVie" xml:space="preserve">
+    <value>Gestion des durées de vie</value>
+  </data>
+  <data name="UC_GestionCategories" xml:space="preserve">
+    <value>Gestion des catégories</value>
+  </data>
+  <data name="UC_GestionLocalisations" xml:space="preserve">
+    <value>Gestion des localisations</value>
+  </data>
+  <data name="UC_GestionModeles" xml:space="preserve">
+    <value>Gestion des modèles</value>
+  </data>
+  <data name="UC_GestionEquipements" xml:space="preserve">
+    <value>Gestion des équipements</value>
+  </data>
+  <data name="UC_GestionLocalisationsEquipements" xml:space="preserve">
+    <value>Gestion de la localisation des équipements</value>
+  </data>
+  <data name="UC_GestionSaisiesVerifications" xml:space="preserve">
+    <value>Saisie des vérifications</value>
+  </data>
+  <data name="UC_GestionCampagnesVerification" xml:space="preserve">
+    <value>Gestion des campagnes de vérification</value>
+  </data>
+  <data name="UC_InitialisationDatabase" xml:space="preserve">
+    <value>Initialisation de la base de données</value>
+  </data>
+  <data name="Report_RepartitionAdherentsGroupes" xml:space="preserve">
+    <value>Répartition des adhérents par groupe</value>
+  </data>
+</root>

@@ -1,0 +1,193 @@
+﻿<Window xmlns:my="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"  x:Class="gestadh45.wpf.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:uc="clr-namespace:gestadh45.wpf.UserControls"
+		xmlns:customControls="clr-namespace:Controls;assembly=Controls"
+		xmlns:gen="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+		xmlns:enum="clr-namespace:gestadh45.business.Enums;assembly=gestadh45.business"
+        xmlns:res="clr-namespace:gestadh45.wpf.Ressources"
+		Title="GestAdh45" MinHeight="500" MinWidth="705"
+		Icon="/gestadh45.wpf;component/gestadh45.ico" 
+		WindowState="Maximized" Background="#FFDFE9F5">
+	<DockPanel>
+		<my:Ribbon DockPanel.Dock="Top" Title="{Binding Path=InfosDataSource}" IsEnabled="{Binding Path=MainMenuEnabled}">
+			<my:Ribbon.ApplicationMenu>
+				<my:RibbonApplicationMenu Label="{x:Static res:UI_Labels.TabMenu_Menu}" SmallImageSource="/gestadh45.wpf;component/Images/btn_menu.png">
+					<my:RibbonApplicationMenuItem Header="{x:Static res:UI_Labels.Menu_Demarrage}" 
+												  Command="{Binding Path=StartMenuCommand}" />
+					<my:RibbonApplicationMenuItem Header="{x:Static res:UI_Labels.Menu_InfosClub}"
+												  Command="{Binding Path=ShowUCCommand}"
+												  CommandParameter="{x:Static enum:CodesUC.GestionInfosClub}" />
+					<my:RibbonApplicationMenuItem Header="{x:Static res:UI_Labels.Menu_APropos}"
+												  Command="{Binding Path=AboutBoxCommand}" />
+					<my:RibbonApplicationMenuItem Header="{x:Static res:UI_Labels.Menu_Quitter}" Command="{Binding Path=CloseCommand}" />
+				</my:RibbonApplicationMenu>
+			</my:Ribbon.ApplicationMenu>
+						
+			<my:RibbonTab Header="{x:Static res:UI_Labels.TabMenu_Inscriptions}">
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Groupes}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+									 CommandParameter="{x:Static enum:CodesUC.GestionGroupes}"
+									 LargeImageSource="/gestadh45.wpf;component/Images/btn_groupes.png" 
+									 SmallImageSource="/gestadh45.wpf;component/Images/btn_groupes.png"
+					/>
+				</my:RibbonGroup>
+				
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Adherents}">					
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+									 CommandParameter="{x:Static enum:CodesUC.GestionAdherents}"
+									 LargeImageSource="/gestadh45.wpf;component/Images/btn_adherents.png" 
+									 SmallImageSource="/gestadh45.wpf;component/Images/btn_adherents.png"
+					/>
+				</my:RibbonGroup>
+				
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Inscriptions}">					
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+									 CommandParameter="{x:Static enum:CodesUC.GestionInscriptions}"
+									 LargeImageSource="/gestadh45.wpf;component/Images/btn_inscriptions.png" 
+									 SmallImageSource="/gestadh45.wpf;component/Images/btn_inscriptions.png"
+					/>
+				</my:RibbonGroup>
+			</my:RibbonTab>
+			
+			<my:RibbonTab Header="{x:Static res:UI_Labels.TabMenu_Equipements}">
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Modeles}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.GestionModeles}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_modele.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_modele.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Equipements}">
+					<my:RibbonSplitButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.GestionEquipements}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_equipement.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_equipement.png">
+						<my:RibbonMenuItem Header="{x:Static res:UI_Labels.Tltp_LocalisationEquipements}"
+							Command="{Binding Path=ShowUCCommand}"
+							CommandParameter="{x:Static enum:CodesUC.GestionLocalisationsEquipements}" />
+					</my:RibbonSplitButton>
+				</my:RibbonGroup>
+
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Verifications}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+									 CommandParameter="{x:Static enum:CodesUC.GestionCampagnesVerification}"
+									 LargeImageSource="/gestadh45.wpf;component/Images/btn_verification.png" 
+									 SmallImageSource="/gestadh45.wpf;component/Images/btn_verification.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+			</my:RibbonTab>
+			
+			<my:RibbonTab Header="{x:Static res:UI_Labels.TabMenu_Referentiel}">
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Villes}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.GestionVilles}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_city.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_city.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Saisons}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.GestionSaisons}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_saisons.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_saisons.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_TranchesAge}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.GestionTranchesAge}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_tranchesAge.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_tranchesAge.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Sections}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.GestionSections}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_section.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_section.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Marques}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.GestionMarques}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_marque.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_marque.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+				
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_DureesDeVie}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.GestionDureesDeVie}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_warning.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_warning.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Categories}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.GestionCategories}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_categorie.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_categorie.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Localisations}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.GestionLocalisations}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_localisation.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_localisation.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+			</my:RibbonTab>
+
+			<my:RibbonTab Header="{x:Static res:UI_Labels.TabMenu_Outils}">
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Rapports}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.EcranReporting}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_report.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_report.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Graphiques}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.EcranStatistiques}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_statistiques.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_statistiques.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_CNIL}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.NettoyageCNIL}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_clean.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_clean.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+
+				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Sauvegardes}">
+					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
+										  CommandParameter="{x:Static enum:CodesUC.Backup}"
+										  LargeImageSource="/gestadh45.wpf;component/Images/btn_backup.png" 
+										  SmallImageSource="/gestadh45.wpf;component/Images/btn_backup.png">
+					</my:RibbonButton>
+				</my:RibbonGroup>
+			</my:RibbonTab>
+		</my:Ribbon>
+
+		<Border Margin="5,5,5,5" DockPanel.Dock="Bottom" BorderThickness="0.5" BorderBrush="#FF000000">
+			<TextBox Height="50" 
+				Text="{Binding Path=UserNotification}" 
+				VerticalScrollBarVisibility="Auto"/>
+		</Border>
+
+		<Border Name="contenu"
+			Margin="5,5,5,5" 
+			BorderThickness="1" 
+			BorderBrush="Black" />
+	</DockPanel>
+</Window>

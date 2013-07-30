@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="gestadh45.wpf.UserControls.MarquesUC.GestionMarquesUC"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+ 	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+	xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4"
+	xmlns:uc="clr-namespace:gestadh45.wpf.UserControls"
+ 	xmlns:enum="clr-namespace:gestadh45.business.Enums;assembly=gestadh45.business"
+ 	xmlns:model="clr-namespace:gestadh45.model;assembly=gestadh45.model"
+	xmlns:res="clr-namespace:gestadh45.wpf.Ressources"
+ 	mc:Ignorable="d" 
+ 	d:DesignHeight="500" d:DesignWidth="600">
+	<DockPanel Margin="5,5,5,5">
+		<TextBlock DockPanel.Dock="Top"
+			Text="{Binding Source={x:Static enum:CodesUC.GestionMarques}, Converter={StaticResource ResourceKey=CodeUCToString}}"
+			HorizontalAlignment="Stretch" Margin="0,5,0,10" 
+			TextAlignment="Center" Style="{StaticResource ResourceKey=titreUC}" />
+	
+		<StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+			<Button ToolTip="{x:Static res:UI_Labels.Tltp_Enregistrer}" Margin="10,5,5,5" Style="{StaticResource ResourceKey=bigButton}"
+						Command="{Binding Path=SaveItemCommand}">
+				<Image Source="/gestadh45.wpf;component/Images/btn_save.png" />
+			</Button>
+		</StackPanel>
+	
+		<TextBox Name="tbxFiltre" Margin="0,0,0,10" DockPanel.Dock="Top" Width="300" HorizontalAlignment="Left">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="TextChanged">
+					<cmd:EventToCommand
+								Command="{Binding Path=FilterCommand, Mode=OneWay}"
+								CommandParameter="{Binding ElementName=tbxFiltre, Path=Text}" />
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</TextBox>
+	
+		<ListBox Name="lbxItems" Width="300"
+				 ItemsSource="{Binding Path=Items}">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="SelectionChanged">
+					<cmd:EventToCommand 
+						Command="{Binding Path=ShowDetailsCommand, Mode=OneWay}" 
+						CommandParameter="{Binding ElementName=lbxItems, Path=SelectedItem}" />
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</ListBox>
+	
+		<StackPanel DockPanel.Dock="Left" Orientation="Vertical" VerticalAlignment="Center" Margin="10,10,10,10">
+			<uc:BtnAjouterEditerSupprimerUC 
+				OrientationUC="Vertical"
+				BtnAjouterVisibilite="Visible"
+				BtnModifierVisibilite="Collapsed"
+				BtnSupprimerVisibilite="Visible"
+				CmdAjouter="{Binding Path=AddItemCommand}"
+				CmdSupprimer="{Binding Path=DeleteItemCommand}"
+				/>
+		</StackPanel>
+	
+		<ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True" DockPanel.Dock="Right">
+			<StackPanel Margin="20,0,0,0" Orientation="Vertical">
+				<StackPanel.Style>
+					<Style TargetType="{x:Type StackPanel}">
+						<Setter Property="IsEnabled" Value="True" />
+					
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding SelectedItem}" Value="{x:Null}">
+								<Setter Property="IsEnabled" Value="False" />
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</StackPanel.Style>
+			
+				<GroupBox Name="gbxInfos" Header="{x:Static res:UI_Labels.Head_Marque}" Margin="0,0,0,10">
+					<StackPanel Orientation="Vertical">
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="{x:Static res:UI_Labels.Marque_Libelle}" VerticalAlignment="Center" Style="{StaticResource ResourceKey=labelForm}" />
+							<TextBox Width="200" HorizontalAlignment="Left" 
+							         CharacterCasing="Upper"
+							         Text="{Binding Path=SelectedItem.Libelle}" />
+						</StackPanel>
+					</StackPanel>
+				</GroupBox>
+				
+				<Separator Height="2" />
+				
+				<GroupBox Name="gbxStats" Header="{x:Static res:UI_Labels.Head_Stats}" Margin="0,0,0,10">
+					<StackPanel Orientation="Vertical">					
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="{x:Static res:UI_Labels.Marques_NbMarques}" />
+							<TextBlock Text="{Binding ElementName=lbxItems, Path=Items.Count}" />
+						</StackPanel>					
+					</StackPanel>
+				</GroupBox>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</UserControl>

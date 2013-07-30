@@ -1,0 +1,90 @@
+﻿<?xml version="1.0"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*"
+		Name="GestAdh45"
+		Language="1036"
+		Version="1.0.0.0"
+		UpgradeCode="CE8E3348-DBD6-44C9-9B8D-C838DF3664D6"
+		Manufacturer="Guillaume Porte">
+		<Package Description="#Description"
+			Comments="Comments"
+			InstallerVersion="200"
+			Compressed="yes"/>
+		<!--
+			Source media for the installation. 
+ 			Specifies a single cab file to be embedded in the installer's .msi. 
+		-->
+		<Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high"/>
+		
+		<!-- Installation directory and files are defined in Files.wxs -->
+		<Directory Id="TARGETDIR" Name="SourceDir"/>
+		
+		<Feature Id="Application"
+		         Title="GestAdh45"
+		         Description="Composants de l'application"
+		         Level="1">
+			<ComponentRef Id="License"/>
+			<ComponentRef Id="MainExecutable"/>
+			<ComponentRef Id="ConfigFile"/>
+			
+			<ComponentRef Id="dll_gestadh45.business"/>
+			<ComponentRef Id="dll_gestadh45.dal"/>
+			<ComponentRef Id="dll_gestadh45.model"/>
+			<ComponentRef Id="dll_gestadh45.services"/>
+			
+			<!-- data -->
+			<ComponentRef Id="dll_EntityFramework"/>
+			<ComponentRef Id="dll_System.Data.SqlServerCe"/>
+			<ComponentRef Id="dll_System.Data.SqlServerCe.Entity"/>
+			
+			
+			<!-- core -->			
+			<ComponentRef Id="dll_GalaSoft.MvvmLight.WPF4"/>
+			<ComponentRef Id="dll_GalaSoft.MvvmLight.Extras.WPF4"/>		
+			<ComponentRef Id="dll_System.Windows.Interactivity"/>	
+			
+			<!-- services -->
+			<ComponentRef Id="dll_DoddleReport"/>
+			<ComponentRef Id="dll_DoddleReport.OpenXml"/>
+			<ComponentRef Id="dll_ClosedXML"/>
+			<ComponentRef Id="dll_DocumentFormat.OpenXml"/>
+			<ComponentRef Id="dll_MigraDoc.DocumentObjectModel"/>			
+			<ComponentRef Id="dll_MigraDoc.Rendering"/>
+			<ComponentRef Id="dll_MigraDoc.DocumentObjectModel.resources"/>
+			<ComponentRef Id="dll_MigraDoc.Rendering.resources"/>
+			<ComponentRef Id="dll_PdfSharp.Charting"/>
+			<ComponentRef Id="dll_PdfSharp"/>
+			
+			<!-- WPF -->
+			<ComponentRef Id="dll_Controls"/>
+			<ComponentRef Id="dll_WPFToolkit"/>	
+			<ComponentRef Id="dll_System.Windows.Controls.DataVisualization.Toolkit"/>
+			<ComponentRef Id="dll_Xceed.Wpf.Toolkit"/>
+			<ComponentRef Id="dll_Xceed.Wpf.DataGrid"/>
+			<ComponentRef Id="dll_RibbonControlsLibrary"/>
+			<ComponentRef Id="dll_Microsoft.Windows.Shell"/>					
+							
+			<ComponentRef Id="dll_Microsoft.Practices.ServiceLocation"/> <!-- Enterprise library -->
+			
+			<ComponentRef Id="ProgramMenuDir"/>
+		</Feature>
+		
+		<Feature Id="sqlce40"
+				 Title="SQL Server CE 4.0"
+				 Description="Installez ce composant si SQL Server CE 4.0 n'est pas installé sur votre système"
+				 Level="1">
+			<ComponentRef Id="dll_sqlceca40"/>
+			<ComponentRef Id="dll_sqlcecompact40"/>
+			<ComponentRef Id="dll_sqlceer40EN"/>
+			<ComponentRef Id="dll_sqlceer40FR"/>
+			<ComponentRef Id="dll_sqlceme40"/>
+			<ComponentRef Id="dll_sqlceoledb40"/>
+			<ComponentRef Id="dll_sqlceqp40"/>
+			<ComponentRef Id="dll_sqlcese40"/>
+		</Feature>
+		
+		<Icon Id="gestadh45.wpf.exe" SourceFile="..\gestadh45.wpf\bin\Debug\gestadh45.wpf.exe"/>
+		
+		<UIRef Id="WixUI_FeatureTree"/>
+	</Product>
+</Wix>

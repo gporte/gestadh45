@@ -1,0 +1,291 @@
+﻿<UserControl x:Class="gestadh45.wpf.UserControls.InscriptionsUC.GestionInscriptionsUC"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+		 	 xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+			 xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4"
+			 xmlns:uc="clr-namespace:gestadh45.wpf.UserControls"
+		 	 xmlns:enum="clr-namespace:gestadh45.business.Enums;assembly=gestadh45.business"
+		 	 xmlns:model="clr-namespace:gestadh45.model;assembly=gestadh45.model"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:res="clr-namespace:gestadh45.wpf.Ressources"
+ 			 mc:Ignorable="d" 
+ 			 d:DesignHeight="500" d:DesignWidth="600">
+	<DockPanel Margin="5,5,5,5">
+		<TextBlock DockPanel.Dock="Top"
+				   Text="{Binding Source={x:Static enum:CodesUC.GestionInscriptions}, Converter={StaticResource ResourceKey=CodeUCToString}}"
+				   HorizontalAlignment="Stretch" Margin="0,5,0,10" 
+				   TextAlignment="Center" Style="{StaticResource ResourceKey=titreUC}" />
+	
+		<StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+			<Button ToolTip="{x:Static res:UI_Labels.Tltp_Enregistrer}" Margin="10,5,5,5" Style="{StaticResource ResourceKey=bigButton}"
+					Command="{Binding Path=SaveItemCommand}">
+				<Image Source="/gestadh45.wpf;component/Images/btn_save.png" />
+			</Button>
+		
+			<Separator Margin="10,5,5,5" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+		
+			<Button ToolTip="{x:Static res:UI_Labels.Tltp_DocumentInscriptionPdf}" Margin="10,5,5,5" Style="{StaticResource ResourceKey=bigButton}"
+					Command="{Binding Path=GenererDocumentCommand}"			
+					CommandParameter="{x:Static enum:CodesDocument.FicheInscriptionPDF}">
+				<Image Source="/gestadh45.wpf;component/Images/btn_pdf32.png" />
+			</Button>
+		
+			<Button ToolTip="{x:Static res:UI_Labels.Tltp_Document_AttestationPdf}" Margin="10,5,5,5" Style="{StaticResource ResourceKey=bigButton}"
+					Command="{Binding Path=GenererDocumentCommand}"
+					CommandParameter="{x:Static enum:CodesDocument.AttestationPDF}">
+				<Image Source="/gestadh45.wpf;component/Images/btn_pdf32.png" />
+			</Button>
+		</StackPanel>
+	
+		<TextBox Name="tbxFiltre" Margin="0,0,0,10" DockPanel.Dock="Top" Width="300" HorizontalAlignment="Left">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="TextChanged">
+					<cmd:EventToCommand
+								Command="{Binding Path=FilterCommand, Mode=OneWay}"
+								CommandParameter="{Binding ElementName=tbxFiltre, Path=Text}" />
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</TextBox>
+	
+		<ListBox Name="lbxItems" Width="300" DockPanel.Dock="Left"
+				ItemsSource="{Binding Path=Items}">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="SelectionChanged">
+					<cmd:EventToCommand 
+					Command="{Binding Path=ShowDetailsCommand, Mode=OneWay}" 
+					CommandParameter="{Binding ElementName=lbxItems, Path=SelectedItem}" />
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+			
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding Path=.}" Foreground="{Binding Path=StatutInscription, Converter={StaticResource ResourceKey=StatutInscriptionToBrush}}" />
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	
+		<StackPanel DockPanel.Dock="Left" Orientation="Vertical" VerticalAlignment="Center" Margin="10,10,10,10">
+			<uc:BtnAjouterEditerSupprimerUC 
+				OrientationUC="Vertical"
+				BtnAjouterVisibilite="Collapsed"
+				BtnModifierVisibilite="Collapsed"
+				BtnSupprimerVisibilite="Visible"
+				CmdSupprimer="{Binding Path=DeleteItemCommand}"
+				/>
+		</StackPanel>
+	
+		<ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True" DockPanel.Dock="Right">
+			<StackPanel Margin="20,0,0,0" Orientation="Vertical">
+				<StackPanel.Style>
+					<Style TargetType="{x:Type StackPanel}">
+						<Setter Property="IsEnabled" Value="True" />
+					
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding SelectedItem}" Value="{x:Null}">
+								<Setter Property="IsEnabled" Value="False" />
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</StackPanel.Style>
+				
+				<GroupBox Name="gbxAdherent" Header="{x:Static res:UI_Labels.Head_Adherent}" Margin="0,0,0,10">
+					<Button Width="200" Height="40" 
+					        HorizontalAlignment="Left" 
+					        HorizontalContentAlignment="Left"
+					        ToolTip="{x:Static res:UI_Labels.Tltp_ShowDetailsAdherent}"
+					        Command="{Binding Path=ShowDetailsAdherentCommand}">
+						<StackPanel Orientation="Horizontal">
+							<Image Width="32" Height="32" >
+								<Image.Style>
+									<Style TargetType="{x:Type Image}">
+										<Setter Property="Source" Value="/gestadh45.wpf;component/Images/btn_unknown.png" />
+										<Style.Triggers>
+											<DataTrigger Binding="{Binding Path=SelectedItem.Adherent.Sexe}" Value="{x:Static model:Sexe.M}">
+												<Setter Property="Source" Value="/gestadh45.wpf;component/Images/man.png" />
+											</DataTrigger>
+											<DataTrigger Binding="{Binding Path=SelectedItem.Adherent.Sexe}" Value="{x:Static model:Sexe.F}">
+												<Setter Property="Source" Value="/gestadh45.wpf;component/Images/woman.png" />
+											</DataTrigger>
+										</Style.Triggers>
+									</Style>
+								</Image.Style>
+							</Image>
+							
+							<StackPanel Orientation="Vertical">
+								<TextBlock Text="{Binding Path=SelectedItem.Adherent}" />
+								<TextBlock>
+									<TextBlock.Text>
+										<MultiBinding StringFormat="{}({0} an(s)) {1}">
+											<Binding Path="SelectedItem.Adherent.Age" />
+											<Binding Path="SelectedItem.Adherent.Ville" />
+										</MultiBinding>
+									</TextBlock.Text>
+								</TextBlock>
+							</StackPanel>
+						</StackPanel>
+					</Button>
+				</GroupBox>
+				
+				<GroupBox Name="gbxInscription" Header="{x:Static res:UI_Labels.Head_Inscription}" Margin="0,0,0,10">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="50" />
+							<ColumnDefinition Width="200" />
+						</Grid.ColumnDefinitions>
+					
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+					
+						<TextBlock Grid.Row="0" Grid.Column="0" Margin="0,5,0,0" 
+						           Text="{x:Static res:UI_Labels.Inscription_Saison}" />
+						<TextBlock Grid.Row="0" Grid.Column="1" Margin="0,5,0,0" 
+						           Text="{Binding Path=SaisonCourante}" />
+					
+						<TextBlock Grid.Row="1" Grid.Column="0" Margin="0,5,0,0" 
+						           Text="{x:Static res:UI_Labels.Inscription_Section}" />
+						<ComboBox Grid.Row="1" Grid.Column="1" Margin="0,5,0,0" 
+						          ItemsSource="{Binding Path=Sections}" 
+						          SelectedItem="{Binding Path=SelectedItem.Section}" />
+					
+						<TextBlock Grid.Row="2" Grid.Column="0" Margin="0,5,0,0" 
+						           Text="{x:Static res:UI_Labels.Inscription_Groupe}" />
+						<ComboBox Grid.Row="2" Grid.Column="1" Margin="0,5,0,0" 
+						          ItemsSource="{Binding Path=Groupes}" 
+						          SelectedItem="{Binding Path=SelectedItem.Groupe}" />
+					
+						<TextBlock Grid.Row="3" Grid.Column="0" Margin="0,5,0,0" 
+						           Text="{x:Static res:UI_Labels.Inscription_Statut}" />
+						<ComboBox Grid.Row="3" Grid.Column="1" Margin="0,5,0,0" 
+						          ItemsSource="{Binding Path=Statuts}" 
+						          SelectedItem="{Binding Path=SelectedItem.StatutInscription}">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="SelectionChanged">
+									<cmd:EventToCommand	Command="{Binding Path=SaveItemCommand, Mode=OneWay}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							
+							<ComboBox.ItemTemplate>
+								<DataTemplate>
+									<TextBlock 
+										Text="{Binding Converter={StaticResource ResourceKey=StatutInscriptionToString}}" 
+										Foreground="{Binding Converter={StaticResource ResourceKey=StatutInscriptionToBrush}}" />
+								</DataTemplate>
+							</ComboBox.ItemTemplate>
+						</ComboBox>
+					</Grid>
+				</GroupBox>
+				
+				<GroupBox Name="gbxDossier" Header="{x:Static res:UI_Labels.Head_Dossier}" Margin="0,0,0,10">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="100" />
+							<ColumnDefinition Width="100" />
+							<ColumnDefinition Width="100" />
+							<ColumnDefinition Width="100" />
+						</Grid.ColumnDefinitions>
+					
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+					
+						<TextBlock Grid.Row="0" Grid.Column="0" Margin="0,5,0,0" 
+						           Text="{x:Static res:UI_Labels.Inscription_CertificatMedical}" />
+						<Button Grid.Row="0" Grid.Column="1" Margin="0,5,0,0" 
+						        Command="{Binding Path=ChangeStatutCertificatCommand}" 
+						        Style="{StaticResource ResourceKey=littleButton}">
+							<Image>
+								<Image.Style>
+									<Style TargetType="{x:Type Image}">
+										<Style.Triggers>
+											<DataTrigger Binding="{Binding Path=SelectedItem.CertificatMedicalRemis}" Value="True">
+												<Setter Property="Source" Value="/gestadh45.wpf;component/Images/btn_check.png" />
+												<Setter Property="ToolTip" Value="{x:Static res:UI_Labels.Tltp_ChangeStatutCertificatNonRemis}" />
+											</DataTrigger>
+											<DataTrigger Binding="{Binding Path=SelectedItem.CertificatMedicalRemis}" Value="False">
+												<Setter Property="Source" Value="/gestadh45.wpf;component/Images/btn_disable.png" />
+												<Setter Property="ToolTip" Value="{x:Static res:UI_Labels.Tltp_ChangeStatutCertificatRemis}" />
+											</DataTrigger>
+										</Style.Triggers>
+									</Style>
+								</Image.Style>
+							</Image>
+						</Button>
+					
+						<TextBlock Grid.Row="1" Grid.Column="0" Margin="0,5,0,0" 
+						           Text="{x:Static res:UI_Labels.Inscription_Cotisation}" />
+						<xctk:DecimalUpDown Grid.Row="1" Grid.Column="1" Margin="0,5,0,0" 
+											DefaultValue="0" Minimum="0"
+											Value="{Binding Path=SelectedItem.Cotisation}"
+											Text="{Binding Path=SelectedItem.Cotisation}" />
+					
+						<TextBlock Grid.Row="2" Grid.Column="0" Margin="0,5,0,0" 
+						           Text="{x:Static res:UI_Labels.Inscription_NumLicence}" />
+						<TextBox Grid.Row="2" Grid.Column="1" Margin="0,5,0,0" 
+						         Text="{Binding Path=SelectedItem.NumLicence}" />
+						
+						<TextBlock Grid.Row="2" Grid.Column="2" Margin="0,5,0,0" 
+						           Text="{x:Static res:UI_Labels.Inscription_MontantLicence}" HorizontalAlignment="Right" />
+						<xctk:DecimalUpDown Grid.Row="2" Grid.Column="3" Margin="0,5,0,0" 
+											DefaultValue="0" Minimum="0"
+											Value="{Binding Path=SelectedItem.MontantLicence}"
+											Text="{Binding Path=SelectedItem.MontantLicence}" />
+					</Grid>
+				</GroupBox>
+				
+				<GroupBox Name="gbxDivers" Header="{x:Static res:UI_Labels.Head_Divers}" Margin="0,0,0,10">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="250" />
+							<ColumnDefinition Width="20" />
+							<ColumnDefinition Width="150" />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+					
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+					
+						<TextBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="0,5,0,0"
+						         TextWrapping="Wrap"
+						         Text="{Binding Path=SelectedItem.Commentaire}" />
+						
+						<Separator Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" 
+						           Width="2" HorizontalAlignment="Center"
+						           Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+					
+						<TextBlock Grid.Row="0" Grid.Column="2" Margin="0,5,0,0" 
+						           Text="{x:Static res:UI_Labels.Label_DateCreation}" />
+						<TextBlock Grid.Row="0" Grid.Column="3" Margin="0,5,0,0" 
+						           Text="{Binding Path=SelectedItem.DateCreation, StringFormat='dd/MM/yyyy'}" />
+						
+						<TextBlock Grid.Row="1" Grid.Column="2" Margin="0,5,0,0" 
+						           Text="{x:Static res:UI_Labels.Label_DateModification}" />
+						<TextBlock Grid.Row="1" Grid.Column="3" Margin="0,5,0,0" 
+						           Text="{Binding Path=SelectedItem.DateModification, StringFormat='dd/MM/yyyy'}" />
+					</Grid>
+				</GroupBox>
+							
+				<Separator Height="2" />
+	
+				<GroupBox Name="gbxStats" Header="{x:Static res:UI_Labels.Head_Stats}" Margin="0,0,0,10">
+					<StackPanel Orientation="Vertical">
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="{x:Static res:UI_Labels.Inscription_NbInscriptions}" />
+							<TextBlock Text="{Binding ElementName=lbxItems, Path=Items.Count}" />
+						</StackPanel>
+					</StackPanel>
+				</GroupBox>
+	
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</UserControl>

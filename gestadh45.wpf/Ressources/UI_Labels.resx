@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Adherent_Nom" xml:space="preserve">
+    <value>Nom : </value>
+  </data>
+  <data name="Adherent_Prenom" xml:space="preserve">
+    <value>Prénom : </value>
+  </data>
+  <data name="Adherent_DateNaissance" xml:space="preserve">
+    <value>Naissance : </value>
+  </data>
+  <data name="Adherent_Sexe" xml:space="preserve">
+    <value>Sexe : </value>
+  </data>
+  <data name="Adherent_Age" xml:space="preserve">
+    <value>Age : </value>
+  </data>
+  <data name="Tltp_Enregistrer" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="Tltp_CreerVoirInscription" xml:space="preserve">
+    <value>Inscrire/Voir l'incription</value>
+  </data>
+  <data name="Tltp_DupliquerAdherent" xml:space="preserve">
+    <value>Dupliquer cet adhérent</value>
+  </data>
+  <data name="Head_Identité" xml:space="preserve">
+    <value>Identité</value>
+  </data>
+  <data name="Head_Adresse" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="Adherent_Adresse" xml:space="preserve">
+    <value>Adresse : </value>
+  </data>
+  <data name="Adherent_Ville" xml:space="preserve">
+    <value>Ville : </value>
+  </data>
+  <data name="Tltp_AjouterVille" xml:space="preserve">
+    <value>Ajouter une ville</value>
+  </data>
+  <data name="Head_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Adherent_Telephone1" xml:space="preserve">
+    <value>Tél. 1 : </value>
+  </data>
+  <data name="Adherent_Telephone2" xml:space="preserve">
+    <value>Tél. 2 : </value>
+  </data>
+  <data name="Adherent_Telephone3" xml:space="preserve">
+    <value>Tél. 3 : </value>
+  </data>
+  <data name="Adherent_Mail1" xml:space="preserve">
+    <value>Mail 1 : </value>
+  </data>
+  <data name="Adherent_Mail2" xml:space="preserve">
+    <value>Mail 2 : </value>
+  </data>
+  <data name="Adherent_Mail3" xml:space="preserve">
+    <value>Mail 3 : </value>
+  </data>
+  <data name="Head_Divers" xml:space="preserve">
+    <value>Divers</value>
+  </data>
+  <data name="Head_Stats" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="Label_DateModification" xml:space="preserve">
+    <value>Date de modification : </value>
+  </data>
+  <data name="Label_DateCreation" xml:space="preserve">
+    <value>Date de création : </value>
+  </data>
+  <data name="Adherent_NbAdherents" xml:space="preserve">
+    <value>Nb. adhérents : </value>
+  </data>
+  <data name="Tltp_DocumentInscriptionPdf" xml:space="preserve">
+    <value>Fiche inscription (pdf)</value>
+  </data>
+  <data name="Tltp_Document_AttestationPdf" xml:space="preserve">
+    <value>Attestation (pdf)</value>
+  </data>
+  <data name="Head_Adherent" xml:space="preserve">
+    <value>Adhérent</value>
+  </data>
+  <data name="Tltp_ShowDetailsAdherent" xml:space="preserve">
+    <value>Afficher la fiche de l'adhérent</value>
+  </data>
+  <data name="Head_Inscription" xml:space="preserve">
+    <value>Inscription</value>
+  </data>
+  <data name="Inscription_Saison" xml:space="preserve">
+    <value>Saison : </value>
+  </data>
+  <data name="Inscription_Groupe" xml:space="preserve">
+    <value>Groupe : </value>
+  </data>
+  <data name="Inscription_Section" xml:space="preserve">
+    <value>Section : </value>
+  </data>
+  <data name="Inscription_Statut" xml:space="preserve">
+    <value>Statut : </value>
+  </data>
+  <data name="Head_Dossier" xml:space="preserve">
+    <value>Dossier</value>
+  </data>
+  <data name="Inscription_CertificatMedical" xml:space="preserve">
+    <value>Certificat médical : </value>
+  </data>
+  <data name="Tltp_ChangeStatutCertificatRemis" xml:space="preserve">
+    <value>Cliquer pour passer le statut à 'Remis'</value>
+  </data>
+  <data name="Tltp_ChangeStatutCertificatNonRemis" xml:space="preserve">
+    <value>Cliquer pour passer le statut à 'Non remis'</value>
+  </data>
+  <data name="Inscription_Cotisation" xml:space="preserve">
+    <value>Cotisation : </value>
+  </data>
+  <data name="Inscription_NumLicence" xml:space="preserve">
+    <value>Licence : </value>
+  </data>
+  <data name="Inscription_MontantLicence" xml:space="preserve">
+    <value>Montant : </value>
+  </data>
+  <data name="Inscription_NbInscriptions" xml:space="preserve">
+    <value>Nb. inscriptions : </value>
+  </data>
+  <data name="Head_Informations" xml:space="preserve">
+    <value>Informations</value>
+  </data>
+  <data name="Groupe_Libelle" xml:space="preserve">
+    <value>Libellé : </value>
+  </data>
+  <data name="Groupe_Jour" xml:space="preserve">
+    <value>Jour : </value>
+  </data>
+  <data name="Groupe_Horaire" xml:space="preserve">
+    <value>Horaire : </value>
+  </data>
+  <data name="Groupe_HoraireSeparateur" xml:space="preserve">
+    <value> à </value>
+  </data>
+  <data name="Groupe_NbPlaces" xml:space="preserve">
+    <value>Nb. places : </value>
+  </data>
+  <data name="Menu_InfosClub" xml:space="preserve">
+    <value>Infos du club</value>
+  </data>
+  <data name="Tltp_DocumentsGroupe_InscriptionsPdf" xml:space="preserve">
+    <value>Fiches inscriptions du groupe (pdf)</value>
+  </data>
+  <data name="Tltp_DocumentsGroupe_AttestationsPdf" xml:space="preserve">
+    <value>Attestation d'inscriptions du groupe (pdf)</value>
+  </data>
+  <data name="Groupe_AttestationsPdf" xml:space="preserve">
+    <value> : Attestations (pdf)</value>
+  </data>
+  <data name="Groupe_InscriptionsPdf" xml:space="preserve">
+    <value> : Inscriptions (pdf)</value>
+  </data>
+  <data name="Groupe_EffectifExcel" xml:space="preserve">
+    <value> : Effectif (Excel)</value>
+  </data>
+  <data name="Groupe_ExtractionsMails" xml:space="preserve">
+    <value> : Extraction des e-mails principaux</value>
+  </data>
+  <data name="Tltp_ExtractionEmails" xml:space="preserve">
+    <value>Extraction des e-mails principaux</value>
+  </data>
+  <data name="Tltp_EffectifExcel" xml:space="preserve">
+    <value>Génération du rapport d'effectif (Excel)</value>
+  </data>
+  <data name="Groupe_InfoInscriptionsPrisesEnCompte" xml:space="preserve">
+    <value>Les inscriptions annulées ne seront pas prises en compte</value>
+  </data>
+  <data name="Head_Ville" xml:space="preserve">
+    <value>Ville</value>
+  </data>
+  <data name="Ville_Libelle" xml:space="preserve">
+    <value>Libellé : </value>
+  </data>
+  <data name="Ville_CodePostal" xml:space="preserve">
+    <value>Code postal : </value>
+  </data>
+  <data name="Ville_NbVilles" xml:space="preserve">
+    <value>Nb. villes : </value>
+  </data>
+  <data name="Head_Saison" xml:space="preserve">
+    <value>Saison</value>
+  </data>
+  <data name="Saisons_NbSaisons" xml:space="preserve">
+    <value>Nb. saisons : </value>
+  </data>
+  <data name="Saison_AnneeDebut" xml:space="preserve">
+    <value>Année de début : </value>
+  </data>
+  <data name="InfosClub_Nom" xml:space="preserve">
+    <value>Nom du club : </value>
+  </data>
+  <data name="InfosClub_Adresse" xml:space="preserve">
+    <value>Adresse : </value>
+  </data>
+  <data name="InfosClub_Ville" xml:space="preserve">
+    <value>Ville : </value>
+  </data>
+  <data name="InfosClub_Telephone" xml:space="preserve">
+    <value>Tél. : </value>
+  </data>
+  <data name="InfosClub_Mail" xml:space="preserve">
+    <value>Mail : </value>
+  </data>
+  <data name="InfosClub_SiteWeb" xml:space="preserve">
+    <value>Web : </value>
+  </data>
+  <data name="InfosClub_NumAssociation" xml:space="preserve">
+    <value>N° association : </value>
+  </data>
+  <data name="InfosClub_Siret" xml:space="preserve">
+    <value>SIRET : </value>
+  </data>
+  <data name="Tltp_Siren" xml:space="preserve">
+    <value>SIREN</value>
+  </data>
+  <data name="Tltp_NIC" xml:space="preserve">
+    <value>NIC</value>
+  </data>
+  <data name="InfosClub_NumAps" xml:space="preserve">
+    <value>N° établissement APS : </value>
+  </data>
+  <data name="InfosClub_NumFederation" xml:space="preserve">
+    <value>N° affiliation : </value>
+  </data>
+  <data name="Btn_SaisonCourante" xml:space="preserve">
+    <value>Saison courante</value>
+  </data>
+  <data name="Head_Section" xml:space="preserve">
+    <value>Section</value>
+  </data>
+  <data name="Section_Libelle" xml:space="preserve">
+    <value>Libellé : </value>
+  </data>
+  <data name="Section_NbSections" xml:space="preserve">
+    <value>Nb. sections : </value>
+  </data>
+  <data name="Btn_SectionDefaut" xml:space="preserve">
+    <value>Section par défaut</value>
+  </data>
+  <data name="Head_TranchesAge" xml:space="preserve">
+    <value>Gestion des tranches d'âge</value>
+  </data>
+  <data name="TranchesAge_AgeInf" xml:space="preserve">
+    <value>Age de début (inclus) : </value>
+  </data>
+  <data name="TranchesAge_AgeSup" xml:space="preserve">
+    <value>Age de fin (inclus) : </value>
+  </data>
+  <data name="TranchesAge_NbTranches" xml:space="preserve">
+    <value>Nb. tranches d'âge : </value>
+  </data>
+  <data name="Head_Marque" xml:space="preserve">
+    <value>Marque</value>
+  </data>
+  <data name="Marque_Libelle" xml:space="preserve">
+    <value>Libellé : </value>
+  </data>
+  <data name="DureesDeVie_NbDureesDeVie" xml:space="preserve">
+    <value>Nb. durées de vie : </value>
+  </data>
+  <data name="Head_DureeDeVie" xml:space="preserve">
+    <value>Durée de vie</value>
+  </data>
+  <data name="DureesDeVie_Libelle" xml:space="preserve">
+    <value>Libellé : </value>
+  </data>
+  <data name="DureesDeVie_NbAnnees" xml:space="preserve">
+    <value>Nb. années : </value>
+  </data>
+  <data name="DureesDeVie_NbMois" xml:space="preserve">
+    <value>Nb. mois : </value>
+  </data>
+  <data name="Head_Categorie" xml:space="preserve">
+    <value>Catégorie</value>
+  </data>
+  <data name="Categorie_Libelle" xml:space="preserve">
+    <value>Libellé : </value>
+  </data>
+  <data name="Categories_NbCategories" xml:space="preserve">
+    <value>Nb. catégories : </value>
+  </data>
+  <data name="Categories_DureeDeVie" xml:space="preserve">
+    <value>Durée de vie : </value>
+  </data>
+  <data name="Head_Localisation" xml:space="preserve">
+    <value>Localisation</value>
+  </data>
+  <data name="Localisation_Libelle" xml:space="preserve">
+    <value>Libellé : </value>
+  </data>
+  <data name="Localisation_NbLocalisations" xml:space="preserve">
+    <value>Nb. localisations : </value>
+  </data>
+  <data name="Head_Modele" xml:space="preserve">
+    <value>Modèle</value>
+  </data>
+  <data name="Modeles_NbModeles" xml:space="preserve">
+    <value>Nb. modèles : </value>
+  </data>
+  <data name="Marques_NbMarques" xml:space="preserve">
+    <value>Nb. marques : </value>
+  </data>
+  <data name="Modeles_Nom" xml:space="preserve">
+    <value>Nom : </value>
+  </data>
+  <data name="Modeles_Categorie" xml:space="preserve">
+    <value>Catégories : </value>
+  </data>
+  <data name="Modeles_Marque" xml:space="preserve">
+    <value>Marque : </value>
+  </data>
+  <data name="Modeles_Couleur1" xml:space="preserve">
+    <value>Couleur 1 : </value>
+  </data>
+  <data name="Modeles_Couleur2" xml:space="preserve">
+    <value>Couleur 2 : </value>
+  </data>
+  <data name="Modeles_Couleur3" xml:space="preserve">
+    <value>Couleur 3 : </value>
+  </data>
+  <data name="Equipements_NbEquipements" xml:space="preserve">
+    <value>Nb. équipements : </value>
+  </data>
+  <data name="Head_Equipement" xml:space="preserve">
+    <value>Equipement</value>
+  </data>
+  <data name="Equipements_Numero" xml:space="preserve">
+    <value>Numéro : </value>
+  </data>
+  <data name="Equipements_DateAchat" xml:space="preserve">
+    <value>Date d'achat : </value>
+  </data>
+  <data name="Equipements_Modele" xml:space="preserve">
+    <value>Modèle : </value>
+  </data>
+  <data name="Equipements_Localisation" xml:space="preserve">
+    <value>Localisation : </value>
+  </data>
+  <data name="Equipements_AfficherRebut" xml:space="preserve">
+    <value>Afficher le matériel au rebut : </value>
+  </data>
+  <data name="Tltp_LocalisationEquipements" xml:space="preserve">
+    <value>Gestion de la localisation des équipements</value>
+  </data>
+  <data name="Equipements_DureeDeVie" xml:space="preserve">
+    <value>Durée de vie : </value>
+  </data>
+  <data name="Equipements_FinDeVie" xml:space="preserve">
+    <value>Fin de vie : </value>
+  </data>
+  <data name="Tltp_ReportVieEquipement" xml:space="preserve">
+    <value>Vie de l'équipement sélectionné (Excel)</value>
+  </data>
+  <data name="Head_DeplacerEquipements" xml:space="preserve">
+    <value>Déplacer les équipements sélectionnés</value>
+  </data>
+  <data name="Tltp_Deplacer" xml:space="preserve">
+    <value>Déplacer</value>
+  </data>
+  <data name="SaisiesVerifications_ValiderCampagne" xml:space="preserve">
+    <value>Valider la campagne</value>
+  </data>
+  <data name="SaisiesVerifications_Retour" xml:space="preserve">
+    <value>Retour</value>
+  </data>
+  <data name="Head_EquipementsSelectionnes" xml:space="preserve">
+    <value>Pour les équipements sélectionnés</value>
+  </data>
+  <data name="Tltp_ChangerStatut" xml:space="preserve">
+    <value>Changer le statut</value>
+  </data>
+  <data name="Tltp_SaisirVerifications" xml:space="preserve">
+    <value>Saisir les vérifications</value>
+  </data>
+  <data name="GestionCampagnesVerif_Responsable" xml:space="preserve">
+    <value>Responsable : </value>
+  </data>
+  <data name="GestionCampagnesVerif_Date" xml:space="preserve">
+    <value>Date : </value>
+  </data>
+  <data name="GestionCampagnesVerif_NbEquipements" xml:space="preserve">
+    <value>Nb. équipements : </value>
+  </data>
+  <data name="InitiDB_Explications" xml:space="preserve">
+    <value>Veuillez renseigner le(s) champ(s) ci-dessous afin d'initialiser la base pour une première utilisation.</value>
+  </data>
+  <data name="InitDb_NomClub" xml:space="preserve">
+    <value>Nom du club : </value>
+  </data>
+  <data name="InitDb_AdresseClub" xml:space="preserve">
+    <value>Adresse : </value>
+  </data>
+  <data name="InitDb_VilleClub" xml:space="preserve">
+    <value>Ville : </value>
+  </data>
+  <data name="TabMenu_Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="TabMenu_Inscriptions" xml:space="preserve">
+    <value>Inscriptions</value>
+  </data>
+  <data name="TabMenu_Equipements" xml:space="preserve">
+    <value>Equipements</value>
+  </data>
+  <data name="TabMenu_Referentiel" xml:space="preserve">
+    <value>Référentiel</value>
+  </data>
+  <data name="TabMenu_Outils" xml:space="preserve">
+    <value>Outils</value>
+  </data>
+  <data name="Menu_Demarrage" xml:space="preserve">
+    <value>Ecran de démarrage</value>
+  </data>
+  <data name="Menu_APropos" xml:space="preserve">
+    <value>A propos</value>
+  </data>
+  <data name="Menu_Quitter" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="Menu_Groupes" xml:space="preserve">
+    <value>Groupes</value>
+  </data>
+  <data name="Menu_Adherents" xml:space="preserve">
+    <value>Adhérents</value>
+  </data>
+  <data name="Menu_Inscriptions" xml:space="preserve">
+    <value>Inscriptions</value>
+  </data>
+  <data name="Menu_Modeles" xml:space="preserve">
+    <value>Modèles</value>
+  </data>
+  <data name="Menu_Equipements" xml:space="preserve">
+    <value>Equipements</value>
+  </data>
+  <data name="Menu_Verifications" xml:space="preserve">
+    <value>Vérifications</value>
+  </data>
+  <data name="Menu_Villes" xml:space="preserve">
+    <value>Villes</value>
+  </data>
+  <data name="Menu_Saisons" xml:space="preserve">
+    <value>Saisons</value>
+  </data>
+  <data name="Menu_TranchesAge" xml:space="preserve">
+    <value>Tranches d'âge</value>
+  </data>
+  <data name="Menu_Sections" xml:space="preserve">
+    <value>Sections</value>
+  </data>
+  <data name="Menu_Marques" xml:space="preserve">
+    <value>Marques</value>
+  </data>
+  <data name="Menu_DureesDeVie" xml:space="preserve">
+    <value>Durées de vie</value>
+  </data>
+  <data name="Menu_Categories" xml:space="preserve">
+    <value>Catégories</value>
+  </data>
+  <data name="Menu_Localisations" xml:space="preserve">
+    <value>Localisations</value>
+  </data>
+  <data name="Menu_Rapports" xml:space="preserve">
+    <value>Rapports</value>
+  </data>
+  <data name="Menu_Graphiques" xml:space="preserve">
+    <value>Graphiques</value>
+  </data>
+  <data name="Menu_CNIL" xml:space="preserve">
+    <value>CNIL</value>
+  </data>
+  <data name="Menu_Sauvegardes" xml:space="preserve">
+    <value>Sauvegardes</value>
+  </data>
+  <data name="Head_Outils" xml:space="preserve">
+    <value>Outils</value>
+  </data>
+  <data name="MainScreen_ActiverChargementAuto" xml:space="preserve">
+    <value>Activer le chargement automatique de la dernière base utilisée</value>
+  </data>
+  <data name="Btn_OuvrirDerniereBdd" xml:space="preserve">
+    <value>Ouvrir la dernière base</value>
+  </data>
+  <data name="MainScreen_AucuneChaineDeConnexion" xml:space="preserve">
+    <value>Aucune chaîne de connexion n'est enregistrée</value>
+  </data>
+  <data name="Btn_OuvrirBdd" xml:space="preserve">
+    <value>Ouvrir une base</value>
+  </data>
+  <data name="Btn_CreerBdd" xml:space="preserve">
+    <value>Créer une nouvelle base</value>
+  </data>
+  <data name="Btn_Quitter" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="Head_Options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="Head_OutilsGroupe" xml:space="preserve">
+    <value>Outils groupe</value>
+  </data>
+  <data name="Head_OutilsGlobaux" xml:space="preserve">
+    <value>Outils globaux</value>
+  </data>
+</root>

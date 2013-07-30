@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="gestadh45.wpf.UserControls.CampagnesVerificationUC.GestionSaisiesVerificationsUC"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+ 	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+	xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4"
+	xmlns:uc="clr-namespace:gestadh45.wpf.UserControls"
+ 	xmlns:enum="clr-namespace:gestadh45.business.Enums;assembly=gestadh45.business"
+ 	xmlns:model="clr-namespace:gestadh45.model;assembly=gestadh45.model"
+	xmlns:res="clr-namespace:gestadh45.wpf.Ressources"
+ 	mc:Ignorable="d" 
+ 	d:DesignHeight="500" d:DesignWidth="600">
+	<DockPanel Margin="5,5,5,5">
+		<TextBlock DockPanel.Dock="Top"
+			Text="{Binding Source={x:Static enum:CodesUC.GestionSaisiesVerifications}, Converter={StaticResource ResourceKey=CodeUCToString}}"
+			HorizontalAlignment="Stretch" Margin="0,5,0,10" 
+			TextAlignment="Center" Style="{StaticResource ResourceKey=titreUC}" />
+				
+		<StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,10">
+			<TextBox Name="tbxFiltre" Width="500" HorizontalAlignment="Left">
+				<i:Interaction.Triggers>
+					<i:EventTrigger EventName="TextChanged">
+						<cmd:EventToCommand
+									Command="{Binding Path=FilterCommand, Mode=OneWay}"
+									CommandParameter="{Binding ElementName=tbxFiltre, Path=Text}" />
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+			</TextBox>
+		</StackPanel>
+		
+		<StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5,5,5,5">
+			<Button ToolTip="{x:Static res:UI_Labels.SaisiesVerifications_Retour}" Margin="5,0,10,0" Style="{StaticResource ResourceKey=bigButton}"
+					Command="{Binding Path=ShowUCCommand}" 
+			        CommandParameter="{x:Static enum:CodesUC.GestionCampagnesVerification}">
+				<Image Source="/gestadh45.wpf;component/Images/btn_left.png" />
+			</Button>
+
+			<Separator Margin="0,10,0,10" />
+
+			<Button ToolTip="{x:Static res:UI_Labels.SaisiesVerifications_ValiderCampagne}" Margin="10,0,5,0" Style="{StaticResource ResourceKey=bigButton}"
+					Command="{Binding Path=ValidateCommand}">
+				<Image Source="/gestadh45.wpf;component/Images/btn_verrou.png" />
+			</Button>
+		</StackPanel>
+
+		<Separator DockPanel.Dock="Bottom" Margin="0,20,0,20" />
+	
+		<ListBox Name="lbxItems" Width="500"
+				 ItemsSource="{Binding Path=Items}" 
+		         SelectionMode="Extended">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal">
+						<Image>
+							<Image.Style>
+								<Style TargetType="{x:Type Image}">
+									<Style.Triggers>
+										<DataTrigger Binding="{Binding Path=StatutVerification}" Value="{x:Static model:StatutVerification.Ok}">
+											<Setter Property="Visibility" Value="Visible" />
+											<Setter Property="Source" Value="/gestadh45.wpf;component/Images/btn_validate.png" />
+										</DataTrigger>
+										<DataTrigger Binding="{Binding Path=StatutVerification}" Value="{x:Static model:StatutVerification.Rebut}">
+											<Setter Property="Visibility" Value="Visible" />
+											<Setter Property="Source" Value="/gestadh45.wpf;component/Images/btn_disable.png" />
+										</DataTrigger>
+										<DataTrigger Binding="{Binding Path=StatutVerification}" Value="{x:Static model:StatutVerification.AVerifier}">
+											<Setter Property="Visibility" Value="Collapsed" />
+											<Setter Property="Source" Value="{x:Null}" />
+										</DataTrigger>
+									</Style.Triggers>
+								</Style>
+							</Image.Style>
+						</Image>
+
+						<TextBlock Text="{Binding Path=Equipement}" />
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	
+		<ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True" DockPanel.Dock="Right">
+			<StackPanel Orientation="Vertical" Margin="20,0,0,0">
+				<GroupBox Name="gbxVerification" Header="{x:Static res:UI_Labels.Head_EquipementsSelectionnes}" Margin="0,0,0,10">
+					<StackPanel Orientation="Vertical">
+						<StackPanel Orientation="Horizontal">
+							<ComboBox Name="cmbStatutsVerifications" Width="200" Height="25" 
+								  ItemsSource="{Binding Path=StatutsVerification}"
+								  SelectedItem="{Binding Path=SelectedStatutVerification}">
+								<ComboBox.ItemTemplate>
+									<DataTemplate>
+										<TextBlock 
+											Text="{Binding Converter={StaticResource ResourceKey=StatutVerificationToString}}"
+											Foreground="{Binding Converter={StaticResource ResourceKey=StatutVerificationToBrush}}"/>
+									</DataTemplate>
+								</ComboBox.ItemTemplate>	
+							</ComboBox>
+							
+							<Button ToolTip="{x:Static res:UI_Labels.Tltp_ChangerStatut}" Margin="10,0,0,0" Style="{StaticResource ResourceKey=bigButton}"
+								Command="{Binding Path=ChangerStatutVerificationsCommand}"
+								CommandParameter="{Binding ElementName=lbxItems, Path=SelectedItems}">
+								<Image Source="/gestadh45.wpf;component/Images/btn_save.png" />
+							</Button>
+						</StackPanel>
+					</StackPanel>
+				</GroupBox>
+			</StackPanel>
+		</ScrollViewer>
+	</DockPanel>
+</UserControl>

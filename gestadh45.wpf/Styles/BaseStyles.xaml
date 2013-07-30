@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<!-- Styles -->
+	<Style x:Key="titreUC" TargetType="{x:Type TextBlock}">
+		<Setter Property="FontSize" Value="18" />
+		<Setter Property="FontWeight" Value="Bold" />
+	</Style>
+
+	<Style x:Key="labelForm" TargetType="{x:Type TextBlock}">
+		<Setter Property="FontSize" Value="12" />
+		<Setter Property="FontWeight" Value="Bold" />
+	</Style>
+	
+	<Style x:Key="verticalSeparator" TargetType="{x:Type Separator}">
+		<Setter Property="LayoutTransform">
+			<Setter.Value>
+				<RotateTransform Angle="90" />
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

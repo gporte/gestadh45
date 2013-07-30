@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="gestadh45.wpf.UserControls.BtnAnnulerEnregistrerUC"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 mc:Ignorable="d" 
+			 x:Name="BtnEnregistrerAnnuler"
+			 d:DesignHeight="42" d:DesignWidth="90">
+	<Border BorderThickness="0.5" BorderBrush="#FF000000" CornerRadius="10">
+		<StackPanel Orientation="Horizontal">
+			<Button ToolTip="Annuler" Margin="5,5,5,5" Style="{StaticResource ResourceKey=bigButton}"
+					CommandParameter="{Binding ElementName=BtnEnregistrerAnnuler, Path=CodeUCParent}"
+					Command="{Binding ElementName=BtnEnregistrerAnnuler, Path=CmdAnnuler}"
+					Visibility="{Binding ElementName=BtnEnregistrerAnnuler, Path=BtnAnnulerVisibilite}">
+				<Image Source="/gestadh45.wpf;component/Images/btn_annuler.png" />
+			</Button>
+			<Button Name="btnEnregistrer" ToolTip="Enregistrer" Margin="5,5,5,5" Style="{StaticResource ResourceKey=bigButton}"
+					Command="{Binding ElementName=BtnEnregistrerAnnuler, Path=CmdEnregistrer}"
+					Visibility="{Binding ElementName=BtnEnregistrerAnnuler, Path=BtnEnregistrerVisibilite}">
+				<Image Source="/gestadh45.wpf;component/Images/btn_save.png" />
+			</Button>
+		</StackPanel>
+	</Border>
+</UserControl>
