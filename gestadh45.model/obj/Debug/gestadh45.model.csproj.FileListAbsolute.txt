@@ -1,0 +1,7 @@
+D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.model\bin\Debug\gestadh45.model.dll
+D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.model\bin\Debug\gestadh45.model.pdb
+D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.model\obj\Debug\gestadh45.model.csprojResolveAssemblyReference.cache
+D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.model\obj\Debug\gestadh45.model.ResEnums.resources
+D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.model\obj\Debug\gestadh45.model.csproj.GenerateResource.Cache
+D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.model\obj\Debug\gestadh45.model.dll
+D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.model\obj\Debug\gestadh45.model.pdb
