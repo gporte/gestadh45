@@ -6,8 +6,6 @@ D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.services\bin\Debug\Doddl
 D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.services\bin\Debug\DoddleReport.OpenXml.dll
 D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.services\bin\Debug\MigraDoc.DocumentObjectModel.dll
 D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.services\bin\Debug\MigraDoc.Rendering.dll
-D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.services\bin\Debug\PdfSharp.Charting.dll
-D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.services\bin\Debug\PdfSharp.dll
 D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.services\bin\Debug\ClosedXML.xml
 D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.services\bin\Debug\DoddleReport.pdb
 D:\users\gp.HARDIS\Documents\GitHub\gestadh45\gestadh45.services\bin\Debug\DoddleReport.OpenXml.pdb
