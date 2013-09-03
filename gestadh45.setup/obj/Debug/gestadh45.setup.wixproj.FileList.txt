@@ -1,3 +1,0 @@
-obj\\Debug\gestadh45.setup.wixproj.BindContentsFileListnull.txt
-obj\\Debug\gestadh45.setup.wixproj.BindOutputsFileListnull.txt
-obj\\Debug\gestadh45.setup.wixproj.BindBuiltOutputsFileListnull.txt
