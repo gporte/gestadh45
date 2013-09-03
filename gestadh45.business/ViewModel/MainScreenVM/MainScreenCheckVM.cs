@@ -243,7 +243,7 @@ namespace gestadh45.business.ViewModel.MainScreenVM
 		}
 
 		/// <summary>
-		/// Vérifie la présence de infos obligatoires dans la BDD (ID infos club et Nom club)
+		/// Vérifie la présence de infos obligatoires dans la BDD (ID infos club, Nom club et ville club)
 		/// </summary>
 		/// <returns>True si les infos sont présentes, False sinon</returns>
 		private bool CheckDatas() {
