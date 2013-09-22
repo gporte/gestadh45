@@ -156,7 +156,7 @@ namespace gestadh45.business.ServicesAdapters
 				           {
 					           Groupe=groupe.Libelle,
 					           NbPlaces = groupe.NbPlaces,
-					           NbInscriptions = groupe.NbInscrits
+					           NbInscriptions = groupe.NbActifs
 				           }
 				);
 			}

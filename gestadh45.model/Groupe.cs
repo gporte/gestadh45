@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
-using LinqDataMap = System.Data.Linq.Mapping;
+using System.Linq;
 using System.Reflection;
 using System.Resources;
+
+using LinqDataMap = System.Data.Linq.Mapping;
 
 namespace gestadh45.model
 {
@@ -61,7 +63,7 @@ namespace gestadh45.model
 		{
 			get
 			{
-				return this.NbPlaces - (this.Inscriptions != null ? this.Inscriptions.Count : 0);
+				return this.NbActifs - (this.Inscriptions != null ? this.Inscriptions.Count : 0);
 			}
 		}
 
@@ -74,6 +76,18 @@ namespace gestadh45.model
 			get
 			{
 				return this.Inscriptions != null ? this.Inscriptions.Count : 0;
+			}
+		}
+		
+		/// <summary>
+		/// Obtient le nombre d'inscrits actifs (ie. non annulés)
+		/// </summary>
+		[NotMapped]
+		public int NbActifs 
+		{
+			get 
+			{
+				return this.Inscriptions != null ? this.Inscriptions.Count(x => x.StatutInscription != StatutInscription.Annulee) : 0;
 			}
 		}
 
