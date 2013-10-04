@@ -273,18 +273,6 @@
 						           Text="{Binding Path=SelectedItem.DateModification, StringFormat='dd/MM/yyyy'}" />
 					</Grid>
 				</GroupBox>
-							
-				<Separator Height="2" />
-	
-				<GroupBox Name="gbxStats" Header="{x:Static res:UI_Labels.Head_Stats}" Margin="0,0,0,10">
-					<StackPanel Orientation="Vertical">
-						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="{x:Static res:UI_Labels.Inscription_NbInscriptions}" />
-							<TextBlock Text="{Binding ElementName=lbxItems, Path=Items.Count}" />
-						</StackPanel>
-					</StackPanel>
-				</GroupBox>
-	
 			</StackPanel>
 		</ScrollViewer>
 	</DockPanel>
