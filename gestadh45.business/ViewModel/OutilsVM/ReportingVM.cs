@@ -76,6 +76,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 		private ICollection<ReportRepartitionAdherentAgeLicenceVille> _cacheRepartitionAdherentsAgeLicenceVille;
 		private ICollection<ReportListeAdherents> _cacheCertificatsManquants;
 		private ICollection<ReportRepartitionAdherentsGroupes> _cacheRepartitionAdherentsGroupes;
+		private ICollection<ReportInscriptionsASuivre> _cacheInscriptionsASuivre;
 		#endregion
 
 		#region Constructeur
@@ -206,6 +207,16 @@ namespace gestadh45.business.ViewModel.OutilsVM
 					src.Source = this._cacheRepartitionAdherentsGroupes;
 					break;
 					
+				case CodesReport.InscriptionsASuivre:
+					if(this._cacheInscriptionsASuivre == null) {
+						this._cacheInscriptionsASuivre = ServiceReportingAdapter.InscriptionsToReportInscriptionsASuivre(
+							this.Context.Inscriptions.Where(x => x.Groupe.Saison.EstSaisonCourante && x.StatutInscription == StatutInscription.ASuivre).ToList()
+						);
+					}
+					
+					src.Source = this._cacheInscriptionsASuivre;
+					break;
+					
 				default:
 					src.Source = null;
 					break;
@@ -271,6 +282,12 @@ namespace gestadh45.business.ViewModel.OutilsVM
 						var genRepAdhGroupe = new ReportGenerator<ReportRepartitionAdherentsGroupes>(this._cacheRepartitionAdherentsGroupes, nomFichier);
 						genRepAdhGroupe.SetTitle(this._currentItem.ToString());
 						genRepAdhGroupe.GenerateExcelReport();
+						break;
+						
+					case CodesReport.InscriptionsASuivre:
+						var genInscriptionsASuivre = new ReportGenerator<ReportInscriptionsASuivre>(this._cacheInscriptionsASuivre, nomFichier);
+						genInscriptionsASuivre.SetTitle(this._currentItem.ToString());
+						genInscriptionsASuivre.GenerateExcelReport();
 						break;
 						
 					default:

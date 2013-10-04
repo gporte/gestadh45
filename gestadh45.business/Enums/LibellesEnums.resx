@@ -247,4 +247,7 @@
   <data name="Report_RepartitionAdherentsGroupes" xml:space="preserve">
     <value>Répartition des adhérents par groupe</value>
   </data>
+  <data name="Report_InscriptionsASuivre" xml:space="preserve">
+    <value>Inscriptions à suivre</value>
+  </data>
 </root>

@@ -56,6 +56,11 @@ namespace gestadh45.business.Enums
 		/// <summary>
 		/// Répartition des adhérents par groupe.
 		/// </summary>
-		RepartitionAdherentsGroupes
+		RepartitionAdherentsGroupes,
+		
+		/// <summary>
+		/// Inscriptions à suivre
+		/// </summary>
+		InscriptionsASuivre
 	}
 }

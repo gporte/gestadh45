@@ -222,4 +222,13 @@
   <data name="HeaderNbPlacesDispo" xml:space="preserve">
     <value>Nb. places dispo</value>
   </data>
+  <data name="HeaderCommentaire" xml:space="preserve">
+    <value>Commentaire</value>
+  </data>
+  <data name="HeaderDateCreation" xml:space="preserve">
+    <value>Date création</value>
+  </data>
+  <data name="HeaderDateModification" xml:space="preserve">
+    <value>Date modification</value>
+  </data>
 </root>

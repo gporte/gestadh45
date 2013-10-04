@@ -253,5 +253,24 @@ namespace gestadh45.business.ServicesAdapters
 
 			return result;
 		}
+		
+		public static ICollection<ReportInscriptionsASuivre> InscriptionsToReportInscriptionsASuivre(ICollection<Inscription> inscriptions) {
+			var result = new List<ReportInscriptionsASuivre>();
+			
+			foreach (var ins in inscriptions) {
+				result.Add(
+					new ReportInscriptionsASuivre() {
+						Nom = ins.Adherent.Nom,
+						Prenom = ins.Adherent.Prenom,
+						Groupe = ins.Groupe.ToString(),
+						DateCreation = ins.DateCreation.ToShortDateString(),
+						DateModification = ins.DateModification.ToShortDateString(),
+						Commentaire = ins.Commentaire
+					}
+				);
+			}
+			
+			return result;
+		}
 	}
 }
