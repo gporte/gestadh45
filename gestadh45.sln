@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gestadh45.services", "gesta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gestadh45.model", "gestadh45.model\gestadh45.model.csproj", "{F9858902-AF20-4457-AC77-3B6BF9766FA1}"
 EndProject
-Project("{CFEE4113-1246-4D54-95CB-156813CB8593}") = "gestadh45.setup", "gestadh45.setup\gestadh45.setup.wixproj", "{C1CE0DC0-666B-4723-BC92-5AFE6289A5FE}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "gestadh45.setup", "gestadh45.setup\gestadh45.setup.wixproj", "{C1CE0DC0-666B-4723-BC92-5AFE6289A5FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,7 +48,6 @@ Global
 		{F9858902-AF20-4457-AC77-3B6BF9766FA1}.Debug|x86.ActiveCfg = Debug|x86
 		{F9858902-AF20-4457-AC77-3B6BF9766FA1}.Debug|x86.Build.0 = Debug|x86
 		{C1CE0DC0-666B-4723-BC92-5AFE6289A5FE}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{C1CE0DC0-666B-4723-BC92-5AFE6289A5FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1CE0DC0-666B-4723-BC92-5AFE6289A5FE}.Debug|x86.ActiveCfg = Debug|x86
 		{C1CE0DC0-666B-4723-BC92-5AFE6289A5FE}.Debug|x86.Build.0 = Debug|x86
 	EndGlobalSection
