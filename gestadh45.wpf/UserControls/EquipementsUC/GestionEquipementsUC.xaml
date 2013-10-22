@@ -5,7 +5,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
  	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:s="clr-namespace:System;assembly=mscorlib"
-	xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4"
+	xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
 	xmlns:uc="clr-namespace:gestadh45.wpf.UserControls"
  	xmlns:enum="clr-namespace:gestadh45.business.Enums;assembly=gestadh45.business"
  	xmlns:model="clr-namespace:gestadh45.model;assembly=gestadh45.model"
