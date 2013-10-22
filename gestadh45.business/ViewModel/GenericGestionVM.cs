@@ -1,4 +1,7 @@
-﻿/*
+﻿using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using gestadh45.business.PersonalizedMsg;
+/*
  * Crée par SharpDevelop.
  * Utilisateur: gp
  * Date: 02/21/2013
@@ -6,18 +9,11 @@
  * 
  * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
  */
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
-using gestadh45.business.Enums;
-using gestadh45.business.PersonalizedMsg;
-using gestadh45.model;
 
 namespace gestadh45.business.ViewModel
 {
@@ -167,7 +163,7 @@ namespace gestadh45.business.ViewModel
 			if (this.SelectedItem != null) {
 				var libelle = this.SelectedItem.ToString();
 
-				this.Context.Entry(this.SelectedItem).State = System.Data.EntityState.Deleted;
+				this.Context.Entry(this.SelectedItem).State = EntityState.Deleted;
 				this.Context.SaveChanges();
 				
 				this.ShowUserNotification(string.Format(CultureInfo.CurrentCulture, ResCommon.InfoElementSupprime, libelle));

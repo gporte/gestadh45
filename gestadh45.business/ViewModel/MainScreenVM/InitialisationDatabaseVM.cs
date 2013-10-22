@@ -1,4 +1,11 @@
-﻿/*
+﻿using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using gestadh45.business.Enums;
+using gestadh45.business.PersonalizedMsg;
+using gestadh45.business.ViewModel.InfosClubVM;
+using gestadh45.business.ViewModel.VillesVM;
+using gestadh45.model;
+/*
  * Crée par SharpDevelop.
  * Utilisateur: gp
  * Date: 11/03/2013
@@ -8,16 +15,9 @@
  */
 using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
-using gestadh45.business.Enums;
-using gestadh45.business.PersonalizedMsg;
-using gestadh45.business.ViewModel.InfosClubVM;
-using gestadh45.business.ViewModel.VillesVM;
-using gestadh45.model;
 
 namespace gestadh45.business.ViewModel.MainScreenVM
 {

@@ -1,4 +1,12 @@
-﻿/*
+﻿using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using gestadh45.business.Enums;
+using gestadh45.business.PersonalizedMsg;
+using gestadh45.business.ServicesAdapters;
+using gestadh45.model;
+using gestadh45.services.Reporting;
+using gestadh45.services.Reporting.Templates;
+/*
  * Crée par SharpDevelop.
  * Utilisateur: Guillaume
  * Date: 09/03/2013
@@ -9,18 +17,10 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
-using gestadh45.business.Enums;
-using gestadh45.business.PersonalizedMsg;
-using gestadh45.business.ServicesAdapters;
-using gestadh45.model;
-using gestadh45.services.Reporting;
-using gestadh45.services.Reporting.Templates;
 
 namespace gestadh45.business.ViewModel.CampagnesVerificationVM
 {

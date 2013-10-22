@@ -1,4 +1,12 @@
-﻿/*
+﻿using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using gestadh45.business.Enums;
+using gestadh45.business.PersonalizedMsg;
+using gestadh45.business.ServicesAdapters;
+using gestadh45.model;
+using gestadh45.services.Documents;
+using gestadh45.services.Documents.Templates;
+/*
  * Crée par SharpDevelop.
  * Utilisateur: gp
  * Date: 26/02/2013
@@ -7,20 +15,11 @@
  * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
  */
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
-using gestadh45.business.Enums;
-using gestadh45.business.PersonalizedMsg;
-using gestadh45.business.ServicesAdapters;
-using gestadh45.model;
-using gestadh45.services.Documents;
-using gestadh45.services.Documents.Templates;
 
 namespace gestadh45.business.ViewModel.InscriptionsVM
 {
@@ -239,7 +238,7 @@ namespace gestadh45.business.ViewModel.InscriptionsVM
 
 		public void ExecuteChangeStatutCertificatCommand() {
 			this.SelectedItem.CertificatMedicalRemis = !this.SelectedItem.CertificatMedicalRemis;
-			this.Context.Entry(this.SelectedItem).State = System.Data.EntityState.Modified;
+			this.Context.Entry(this.SelectedItem).State = EntityState.Modified;
 			this.Context.SaveChanges();
 
 			this.RaisePropertyChanged(() => this.SelectedItem);

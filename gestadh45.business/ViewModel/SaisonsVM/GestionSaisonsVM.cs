@@ -1,4 +1,9 @@
-﻿/*
+﻿using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using gestadh45.business.Enums;
+using gestadh45.business.PersonalizedMsg;
+using gestadh45.model;
+/*
  * Crée par SharpDevelop.
  * Utilisateur: Guillaume
  * Date: 02/03/2013
@@ -7,16 +12,11 @@
  * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
  */
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
-using gestadh45.business.Enums;
-using gestadh45.business.PersonalizedMsg;
-using gestadh45.model;
 
 namespace gestadh45.business.ViewModel.SaisonsVM
 {
@@ -51,7 +51,7 @@ namespace gestadh45.business.ViewModel.SaisonsVM
 				// on récupère l'ancienne saison courante et on lui retire l'attribut
 				Saison oldSaisonCourante = this.Context.Saisons.FirstOrDefault((s)=>s.EstSaisonCourante);
 				oldSaisonCourante.EstSaisonCourante = false;
-				this.Context.Entry(oldSaisonCourante).State = System.Data.EntityState.Modified;
+				this.Context.Entry(oldSaisonCourante).State = EntityState.Modified;
 
 				saison.EstSaisonCourante = true;
 

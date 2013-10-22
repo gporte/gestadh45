@@ -1,4 +1,9 @@
-﻿/*
+﻿using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using gestadh45.business.Enums;
+using gestadh45.business.PersonalizedMsg;
+using gestadh45.model;
+/*
  * Crée par SharpDevelop.
  * Utilisateur: gp
  * Date: 08/03/2013
@@ -8,16 +13,10 @@
  */
 using System;
 using System.Collections;
-using System.Data;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
-
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
-using gestadh45.business.Enums;
-using gestadh45.business.PersonalizedMsg;
-using gestadh45.model;
 
 namespace gestadh45.business.ViewModel.CampagnesVerificationVM
 {
@@ -138,7 +137,7 @@ namespace gestadh45.business.ViewModel.CampagnesVerificationVM
 		private void ExecuteValidateCommandCallBack(bool validateConfirmation) {
 			if (validateConfirmation) {
 				this.CurrentCampagne.EstValidee = true;
-				this.Context.Entry(this.CurrentCampagne).State = System.Data.EntityState.Modified;
+				this.Context.Entry(this.CurrentCampagne).State = EntityState.Modified;
 				this.Context.SaveChanges();
 
 				this.ShowUC(CodesUC.GestionCampagnesVerification);
