@@ -33,7 +33,10 @@
     <Prefer32Bit>True</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <WixExtension Include="WixUIExtension.dll" />
+    <WixExtension Include="WixUIExtension.dll">
+      <HintPath>WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension.dll</Name>
+    </WixExtension>
   </ItemGroup>
   <ItemGroup>
     <None Include="Files.wxs" />
