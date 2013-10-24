@@ -60,7 +60,8 @@ namespace gestadh45.business.ViewModel
 		/// <param name="userConnectionString">Chaîne de connection de l'utilisateur</param>
 		protected VMUCBase(string userConnectionString) : this() {
 			// ensuite vu qu'on a une chaîne de connexion, on finalise l'initialisation
-			this.Context = new GestAdhContext(userConnectionString);			
+			this.Context = new GestAdhContext();
+			this.Context.SetConnection(userConnectionString);
 
 			// envoi du message d'affichage du datasource
 			Messenger.Default.Send(new NMShowInfosDataSource(this.Context.Database.Connection.ConnectionString));

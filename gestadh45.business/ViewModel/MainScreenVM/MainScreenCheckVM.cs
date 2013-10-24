@@ -228,7 +228,8 @@ namespace gestadh45.business.ViewModel.MainScreenVM
 			
 			// on tente d'initialiser le contexte avec la chaîne de connexion
 			try {
-				this.Context = new GestAdhContext(this.LastDbConnectionString);
+				this.Context = new GestAdhContext();
+				this.Context.SetConnection(this.LastDbConnectionString);
 				
 				this.Context.Database.Connection.Open();
 				this.Context.Database.Connection.Close();

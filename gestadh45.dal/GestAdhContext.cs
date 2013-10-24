@@ -1,20 +1,23 @@
-﻿using System.Data.Common;
+﻿using gestadh45.model;
 using System.Data.Entity;
-using System.Data.SqlServerCe;
-
-using gestadh45.model;
 
 namespace gestadh45.dal
 {
 	public class GestAdhContext : DbContext
 	{
 		/// <summary>
-		/// Constructeur créant un contexte à partir de la chaîne de connexion SQL CE 4.0 passée en paramètre
+		/// Constructeur de base
 		/// </summary>
-		/// <param name="connectionString">Chaîne de connexion SQL CE 4.0</param>
-		public GestAdhContext(string connectionString)
-			: base(new SqlCeConnection(connectionString), false) { }
-		
+		public GestAdhContext() : base() { }
+
+		/// <summary>
+		/// Définitla chaîne de connexion du context
+		/// </summary>
+		/// <param name="connectionString">Chaîne de connexio</param>
+		public void SetConnection(string connectionString) {
+			this.Database.Connection.ConnectionString = connectionString;
+		}
+
 		public DbSet<Adherent> Adherents { get; set; }
 		public DbSet<Groupe> Groupes { get; set; }
 		public DbSet<InfosClub> InfosClub { get; set; }
