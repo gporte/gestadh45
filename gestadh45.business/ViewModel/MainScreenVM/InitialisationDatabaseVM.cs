@@ -60,7 +60,7 @@ namespace gestadh45.business.ViewModel.MainScreenVM
 		}
 		#endregion
 		
-		public InitialisationDatabaseVM(string userConnectionString) : base(userConnectionString) {
+		public InitialisationDatabaseVM() : base() {
 			this.UCCode = CodesUC.InitialisationDatabase;
 			this.AddDefautItem();
 			this.CurrentItem = this.Context.InfosClub.FirstOrDefault();
@@ -68,7 +68,7 @@ namespace gestadh45.business.ViewModel.MainScreenVM
 			this.CreateCancelCommand();
 			this.CreateSaveCommand();
 
-			this.Villes = this.Context.Villes.ToList().OrderBy(v => v.ToString());	
+			this.Villes = this.Context.Villes.ToList().OrderBy(v => v.ToString());
 		}
 		
 		#region private methods

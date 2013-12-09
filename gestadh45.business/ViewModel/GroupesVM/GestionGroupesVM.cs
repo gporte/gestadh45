@@ -1,18 +1,4 @@
-﻿/*
- * Crée par SharpDevelop.
- * Utilisateur: gp
- * Date: 01/03/2013
- * Heure: 12:00
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Globalization;
-using System.Linq;
-using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.Enums;
 using gestadh45.business.PersonalizedMsg;
@@ -22,6 +8,12 @@ using gestadh45.services.Documents;
 using gestadh45.services.Documents.Templates;
 using gestadh45.services.Reporting;
 using gestadh45.services.Reporting.Templates;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Linq;
+using System.Windows.Input;
 
 namespace gestadh45.business.ViewModel.GroupesVM
 {
@@ -47,7 +39,7 @@ namespace gestadh45.business.ViewModel.GroupesVM
 		}
 		#endregion
 		
-		public GestionGroupesVM(string userConnectionString) : base(userConnectionString) {
+		public GestionGroupesVM() : base() {
 			this.UCCode = CodesUC.GestionGroupes;
 			this.CreateGenererDocumentsGroupeCommand();
 			this.CreateExtraireEmailsCommand();

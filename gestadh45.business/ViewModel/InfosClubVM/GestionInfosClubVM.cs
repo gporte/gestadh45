@@ -38,7 +38,7 @@ namespace gestadh45.business.ViewModel.InfosClubVM
 		}
 		#endregion
 		
-		public GestionInfosClubVM(string userConnectionString) : base(userConnectionString) {
+		public GestionInfosClubVM() : base() {
 			this.UCCode = CodesUC.GestionInfosClub;
 		}
 		

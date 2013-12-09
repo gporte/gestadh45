@@ -1,25 +1,7 @@
-﻿/*
- * Crée par SharpDevelop.
- * Utilisateur: gp
- * Date: 22/02/2013
- * Heure: 09:56
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-
-using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.PersonalizedMsg;
-using gestadh45.business.ViewModel.AdherentsVM;
 using gestadh45.model;
+using System.Windows.Controls;
 
 namespace gestadh45.wpf.UserControls.AdherentsUC
 {
@@ -30,7 +12,6 @@ namespace gestadh45.wpf.UserControls.AdherentsUC
 	{
 		public GestionAdherentsUC()	{
 			InitializeComponent();
-			this.DataContext = new GestionAdherentsVM(UserSettings.Default.UserConnectionString);
 
 			Messenger.Default.Register<NMClearFilter>(this, msg => this.ClearFilter());
 			Messenger.Default.Register<NMSelectionElement<Adherent>>(this, msg => this.ScrollToItem(msg.Content));
@@ -38,7 +19,9 @@ namespace gestadh45.wpf.UserControls.AdherentsUC
 		
 		public GestionAdherentsUC(Adherent adherent) {
 			InitializeComponent();
-			this.DataContext = new GestionAdherentsVM(UserSettings.Default.UserConnectionString, adherent.ID);
+
+			// envoi d'un msg au VM pour charger l'adhérent
+			Messenger.Default.Send(new NMLoadItem<Adherent>(adherent));
 
 			Messenger.Default.Register<NMClearFilter>(this, msg => this.ClearFilter());
 			Messenger.Default.Register<NMSelectionElement<Adherent>>(this, msg => this.ScrollToItem(msg.Content));

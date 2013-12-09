@@ -49,7 +49,7 @@ namespace gestadh45.wpf
 			);			
 
 			InitializeComponent();
-			this.DataContext = new MainViewModel();
+			//this.DataContext = new MainViewModel();
 
 			// Abonnement aux messages
 			Messenger.Default.Register<NMCloseApplication>(this, (msg) => this.Exit());

@@ -1,23 +1,13 @@
-﻿/*
- * Crée par SharpDevelop.
- * Utilisateur: gp
- * Date: 22/02/2013
- * Heure: 09:55
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Configuration;
-using System.Globalization;
-using System.Linq;
-using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.Enums;
 using gestadh45.business.PersonalizedMsg;
 using gestadh45.model;
+using System;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Linq;
+using System.Windows.Input;
 
 namespace gestadh45.business.ViewModel.AdherentsVM
 {
@@ -59,16 +49,19 @@ namespace gestadh45.business.ViewModel.AdherentsVM
 			}
 		}
 		#endregion
-		
-		public GestionAdherentsVM(string userConnectionString) : base(userConnectionString)	{
+
+		public GestionAdherentsVM()
+			: base() {
 			this.UCCode = CodesUC.GestionAdherents;
 			this.CreateInscriptionCommand();
+
+			Messenger.Default.Register<NMLoadItem<Adherent>>(this, msg => this.LoadAdherent(msg.Content.ID));
 		}
-		
-		public GestionAdherentsVM(string userConnectionString, Guid idAdherent) : this(userConnectionString) {
-			this.SelectedItem = this.Context.Adherents.Find(idAdherent);
-			
-			if(this.SelectedItem != null) {
+
+		private void LoadAdherent(Guid adhId) {
+			this.SelectedItem = this.Context.Adherents.Find(adhId);
+
+			if (this.SelectedItem != null) {
 				Messenger.Default.Send(new NMSelectionElement<Adherent>(this.SelectedItem));
 			}
 		}

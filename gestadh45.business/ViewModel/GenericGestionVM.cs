@@ -66,6 +66,21 @@ namespace gestadh45.business.ViewModel
 		#endregion
 		
 		#region Constructor
+		protected GenericGestionVM()
+			: base() {
+			this.PopulateItems();
+			this.PopulateSpecificDatas();
+
+			this.CreateAddItemCommand();
+			this.CreateCloneSelectedItemCommand();
+			this.CreateDeleteItemCommand();
+			this.CreateSaveItemCommand();
+			this.CreateShowDetailsCommand();
+			this.CreateFilterCommand();
+
+			Messenger.Default.Register<NMRefreshDatas>(this, m => this.PopulateSpecificDatas());
+		}
+
 		protected GenericGestionVM(string userConnectionString) : base(userConnectionString) {
 			this.PopulateItems();
 			this.PopulateSpecificDatas();

@@ -50,8 +50,11 @@ namespace gestadh45.business.ViewModel
 			this.UCGuid = Guid.NewGuid();
 			this.CreateOpenWindowCommand();
 			this.CreateReportCommand();
-			
-			Messenger.Default.Send(new NMShowInfosDataSource(string.Empty));
+
+			this.Context = new GestAdhContext();
+			this.Context.SetConnection(this.GetUserSetting(ResCommon.Setting_UserConnectionString));
+
+			Messenger.Default.Send(new NMShowInfosDataSource(this.Context.Database.Connection.ConnectionString));
 		}
 		
 		/// <summary>

@@ -11,7 +11,6 @@ namespace gestadh45.wpf.UserControls.MainScreenUC
 	{
 		public MainScreenCheckUC() {
 			InitializeComponent();
-			this.DataContext = new MainScreenCheckVM();
 		}
 		
 		private void UserControl_Loaded(object sender, RoutedEventArgs e) {

@@ -113,22 +113,24 @@ namespace gestadh45.business.ViewModel.InscriptionsVM
 		}
 		#endregion
 		
-		public GestionInscriptionsVM(string userConnectionString) : base(userConnectionString) {
+		public GestionInscriptionsVM() : base() {
 			this.UCCode = CodesUC.GestionInscriptions;
 			this.CreateChangeStatutCertificatCommand();
 			this.CreateShowDetailsAdherentCommand();
 			this.CreateGenererDocumentCommand();
+
+			Messenger.Default.Register<NMLoadItem<Adherent>>(this, msg => this.LoadInscriptionAdherent(msg.Content.ID));
 		}
-		
-		public GestionInscriptionsVM(string userConnectionString, Guid idAdherent) : this(userConnectionString) {
+
+		private void LoadInscriptionAdherent(Guid idAdherent) {
 			var saisonCourante = this.Context.Saisons.Where(x => x.EstSaisonCourante).FirstOrDefault();
-			
-			if(this.Context.Inscriptions.Where(x => x.Groupe.Saison.ID == saisonCourante.ID).Count(i => i.Adherent.ID == idAdherent) > 0) {
+
+			if (this.Context.Inscriptions.Where(x => x.Groupe.Saison.ID == saisonCourante.ID).Count(i => i.Adherent.ID == idAdherent) > 0) {
 				this.SelectedItem = this.Context.Inscriptions
 					.Where(x => x.Groupe.Saison.ID == saisonCourante.ID)
 					.FirstOrDefault(i => i.Adherent.ID == idAdherent);
-				
-				if(this.SelectedItem != null) {
+
+				if (this.SelectedItem != null) {
 					Messenger.Default.Send(new NMSelectionElement<Inscription>(this.SelectedItem));
 				}
 			}
@@ -263,6 +265,9 @@ namespace gestadh45.business.ViewModel.InscriptionsVM
 
 		public void ExecuteShowDetailsAdherentCommand() {
 			if (this.SelectedItem != null && this.SelectedItem.Adherent != null) {
+				// on désenregistre l'abonnement à ce type de message pour éviter un appel inutile à LoadInscriptionAdherent
+				Messenger.Default.Unregister<NMLoadItem<Adherent>>(this);
+				
 				Messenger.Default.Send(
 					new NMShowUC<Adherent>(
 						CodesUC.GestionAdherents,

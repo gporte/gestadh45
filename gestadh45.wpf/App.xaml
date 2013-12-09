@@ -7,30 +7,26 @@
         <ResourceDictionary Source="Styles\BaseStyles.xaml" />
         <ResourceDictionary Source="Styles\ButtonStyles.xaml" />
       </ResourceDictionary.MergedDictionaries>
-        
       <tools:BooleanInversionConverter p6:Key="BooleanInversionConverter" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
       <tools:HexaColorStringToBrushConverter p6:Key="HexaToBrush" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
       <BooleanToVisibilityConverter p6:Key="boolToVisibility" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
       <tools:BooleanToBrushConverter p6:Key="boolToBrush" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
-        
       <!-- Converters pour les enums -->
       <tools:JourSemaineToStringConverter p6:Key="JourSemaineToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
       <tools:StatutInscriptionToStringConverter p6:Key="StatutInscriptionToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
       <tools:StatutVerificationToStringConverter p6:Key="StatutVerificationToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
       <tools:SexeToStringConverter p6:Key="SexeToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
-        
       <tools:CodeGraphToStringConverter p6:Key="CodeGraphToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
       <tools:CodeReportToStringConverter p6:Key="CodeReportToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
       <tools:CodeUCToStringConverter p6:Key="CodeUCToString" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
-        
       <tools:StatutInscriptionToBrushConverter p6:Key="StatutInscriptionToBrush" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
       <tools:StatutVerificationToBrushConverter p6:Key="StatutVerificationToBrush" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml" />
-        
       <!-- multi converter -->
-            <tools:ValueConverterGroup p6:Key="InvertAndVisibilitate" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml">
-                <tools:BooleanInversionConverter />
-                <BooleanToVisibilityConverter />
-            </tools:ValueConverterGroup>
-        </ResourceDictionary>
+      <tools:ValueConverterGroup p6:Key="InvertAndVisibilitate" xmlns:p6="http://schemas.microsoft.com/winfx/2006/xaml">
+        <tools:BooleanInversionConverter />
+        <BooleanToVisibilityConverter />
+      </tools:ValueConverterGroup>
+			<vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:gestadh45.business.ViewModel;assembly=gestadh45.business" />
+    </ResourceDictionary>
   </Application.Resources>
 </Application>

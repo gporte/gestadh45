@@ -1,15 +1,13 @@
-﻿using System;
-using System.Data.Common;
+﻿using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using gestadh45.business.Enums;
+using gestadh45.business.PersonalizedMsg;
+using gestadh45.dal;
 using System.Data.SqlServerCe;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
-using gestadh45.business.Enums;
-using gestadh45.business.PersonalizedMsg;
-using gestadh45.dal;
 
 namespace gestadh45.business.ViewModel.MainScreenVM
 {

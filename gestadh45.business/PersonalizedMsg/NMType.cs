@@ -21,5 +21,6 @@ namespace gestadh45.business.PersonalizedMsg
 		public const string NMGetUserSetting = "NMGetUserSetting";
 		public const string NMSetUserSetting = "NMSetUserSetting";
 		public const string NMCopyToClipboard = "NMCopyToClipboard";
+		public const string NMLoadItem = "NMLoadItem";
 	}
 }

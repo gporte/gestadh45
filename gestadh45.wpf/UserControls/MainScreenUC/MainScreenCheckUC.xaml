@@ -7,7 +7,8 @@
              xmlns:enum="clr-namespace:gestadh45.business.Enums;assembly=gestadh45.business"
              xmlns:res="clr-namespace:gestadh45.wpf.Ressources"
 			 mc:Ignorable="d" 
-			 d:DesignHeight="400" d:DesignWidth="600" Loaded="UserControl_Loaded">
+			 d:DesignHeight="400" d:DesignWidth="600" Loaded="UserControl_Loaded"
+			 DataContext="{Binding Source={StaticResource ResourceKey=Locator}, Path=MainScreenVM}">
 	<DockPanel Margin="5,5,5,5">
 		<TextBlock DockPanel.Dock="Top"
 				Text="{Binding Source={x:Static enum:CodesUC.MainScreenCheck}, Converter={StaticResource ResourceKey=CodeUCToString}}"

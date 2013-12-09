@@ -28,7 +28,6 @@ namespace gestadh45.wpf.UserControls.InfosClubUC
 		public GestionInfosClubUC()
 		{
 			InitializeComponent();
-			this.DataContext = new GestionInfosClubVM(UserSettings.Default.UserConnectionString);
 		}
 	}
 }

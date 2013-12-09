@@ -8,7 +8,8 @@
         xmlns:res="clr-namespace:gestadh45.wpf.Ressources"
 		Title="GestAdh45" MinHeight="500" MinWidth="705"
 		Icon="/gestadh45.wpf;component/gestadh45.ico" 
-		WindowState="Maximized" Background="#FFDFE9F5">
+		WindowState="Maximized" Background="#FFDFE9F5"
+		DataContext="{Binding Source={StaticResource ResourceKey=Locator}, Path=MainVM}">
 	<DockPanel>
 		<my:Ribbon DockPanel.Dock="Top" Title="{Binding Path=InfosDataSource}" IsEnabled="{Binding Path=MainMenuEnabled}">
 			<my:Ribbon.ApplicationMenu>
