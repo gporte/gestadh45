@@ -1,14 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.PersonalizedMsg;
-/*
- * Crée par SharpDevelop.
- * Utilisateur: gp
- * Date: 02/21/2013
- * Heure: 14:46
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Globalization;
@@ -78,20 +70,6 @@ namespace gestadh45.business.ViewModel
 			this.CreateShowDetailsCommand();
 			this.CreateFilterCommand();
 
-			Messenger.Default.Register<NMRefreshDatas>(this, m => this.PopulateSpecificDatas());
-		}
-
-		protected GenericGestionVM(string userConnectionString) : base(userConnectionString) {
-			this.PopulateItems();
-			this.PopulateSpecificDatas();
-
-			this.CreateAddItemCommand();
-			this.CreateCloneSelectedItemCommand();
-			this.CreateDeleteItemCommand();
-			this.CreateSaveItemCommand();
-			this.CreateShowDetailsCommand();
-			this.CreateFilterCommand();
-			
 			Messenger.Default.Register<NMRefreshDatas>(this, m => this.PopulateSpecificDatas());
 		}
 		#endregion

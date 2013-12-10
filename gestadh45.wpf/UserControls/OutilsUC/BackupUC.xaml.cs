@@ -1,5 +1,4 @@
-﻿using gestadh45.business.ViewModel.OutilsVM;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace gestadh45.wpf.UserControls.OutilsUC
 {
@@ -10,7 +9,6 @@ namespace gestadh45.wpf.UserControls.OutilsUC
 	{
 		public BackupUC() {
 			InitializeComponent();
-			this.DataContext = new BackupVM(UserSettings.Default.UserConnectionString);
 		}
 	}
 }

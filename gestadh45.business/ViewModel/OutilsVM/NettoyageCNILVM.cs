@@ -26,7 +26,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 		#endregion				
 
 		#region Constructor
-		public NettoyageCNILVM(string userConnectionString) : base(userConnectionString) {
+		public NettoyageCNILVM() : base() {
 			this.CreateGetOldInscriptionsCommand();
 			this.CreateCleanDatasCommand();
 		}

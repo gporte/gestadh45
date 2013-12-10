@@ -1,20 +1,19 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Windows.Input;
-
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.Enums;
 using gestadh45.business.ServicesAdapters;
 using gestadh45.services.Backup;
+using System;
+using System.Globalization;
+using System.Linq;
+using System.Windows.Input;
 
 namespace gestadh45.business.ViewModel.OutilsVM
 {
 	public class BackupVM : VMUCBase
 	{
 		#region Constructeur
-		public BackupVM(string userConnectionString) : base(userConnectionString) {
+		public BackupVM() : base() {
 			this.CreateCommands();
 		}
 		#endregion

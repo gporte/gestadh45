@@ -1,5 +1,4 @@
-﻿using gestadh45.business.ViewModel.OutilsVM;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace gestadh45.wpf.UserControls.OutilsUC
 {
@@ -10,7 +9,6 @@ namespace gestadh45.wpf.UserControls.OutilsUC
 	{
 		public GraphiquesUC() {
 			InitializeComponent();
-			this.DataContext = new GraphiquesVM(UserSettings.Default.UserConnectionString);
 		}
 	}
 }

@@ -1,5 +1,4 @@
-﻿
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.Enums;
 using gestadh45.business.PersonalizedMsg;
@@ -54,19 +53,6 @@ namespace gestadh45.business.ViewModel
 			this.Context = new GestAdhContext();
 			this.Context.SetConnection(this.GetUserSetting(ResCommon.Setting_UserConnectionString));
 
-			Messenger.Default.Send(new NMShowInfosDataSource(this.Context.Database.Connection.ConnectionString));
-		}
-		
-		/// <summary>
-		/// Constructeur définissant le contexte de l'UC à l'aide de la chaîne de connexion passée en paramètre
-		/// </summary>
-		/// <param name="userConnectionString">Chaîne de connection de l'utilisateur</param>
-		protected VMUCBase(string userConnectionString) : this() {
-			// ensuite vu qu'on a une chaîne de connexion, on finalise l'initialisation
-			this.Context = new GestAdhContext();
-			this.Context.SetConnection(userConnectionString);
-
-			// envoi du message d'affichage du datasource
 			Messenger.Default.Send(new NMShowInfosDataSource(this.Context.Database.Connection.ConnectionString));
 		}
 		#endregion

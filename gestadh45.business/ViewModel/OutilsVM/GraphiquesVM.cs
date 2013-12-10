@@ -86,7 +86,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 
 		private const string ResourceBaseName = "gestadh45.business.ViewModel.OutilsVM.ResGraphiques";
 
-		public GraphiquesVM(string userConnectionString) : base(userConnectionString) {
+		public GraphiquesVM() : base() {
 			this._groupesSaisonCourante = this.Context.Groupes
 				.Where(grp => grp.Saison.EstSaisonCourante)
 				.OrderBy(grp => grp.JourSemaine)

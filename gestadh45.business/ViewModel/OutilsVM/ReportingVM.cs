@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Globalization;
-using System.Linq;
-using System.Windows.Data;
-using System.Windows.Input;
-
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.Enums;
 using gestadh45.business.PersonalizedMsg;
@@ -14,6 +6,13 @@ using gestadh45.business.ServicesAdapters;
 using gestadh45.model;
 using gestadh45.services.Reporting;
 using gestadh45.services.Reporting.Templates;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
+using System.Linq;
+using System.Windows.Data;
+using System.Windows.Input;
 
 namespace gestadh45.business.ViewModel.OutilsVM
 {
@@ -80,7 +79,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 		#endregion
 
 		#region Constructeur
-		public ReportingVM(string userConnectionString) : base(userConnectionString) {
+		public ReportingVM() : base() {
 			this.PopulateListeReports();
 			this.CreateChangeReportCommand();
 		}
