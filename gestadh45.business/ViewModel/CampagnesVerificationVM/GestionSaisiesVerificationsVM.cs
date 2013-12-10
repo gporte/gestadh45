@@ -3,14 +3,6 @@ using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.Enums;
 using gestadh45.business.PersonalizedMsg;
 using gestadh45.model;
-/*
- * Crée par SharpDevelop.
- * Utilisateur: gp
- * Date: 08/03/2013
- * Heure: 17:01
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
 using System;
 using System.Collections;
 using System.Data.Entity;
@@ -70,12 +62,18 @@ namespace gestadh45.business.ViewModel.CampagnesVerificationVM
 		}
 		#endregion
 		
-		public GestionSaisiesVerificationsVM(string userConnectionString, Guid idCampagne) : base(userConnectionString) {
-			this.UCCode = CodesUC.GestionSaisiesVerifications;
-			this.CurrentCampagne = this.Context.CampagneVerifications.FirstOrDefault(x => x.ID == idCampagne);
+		public GestionSaisiesVerificationsVM() : base() {
+			this.UCCode = CodesUC.GestionSaisiesVerifications;			
 			
 			this.CreateChangerStatutVerificationsCommand();
 			this.CreateValidateCommand();
+
+			Messenger.Default.Register<NMLoadItem<CampagneVerification>>(this, msg => this.LoadCampagneVerification(msg.Content.ID));
+		}
+
+		private void LoadCampagneVerification(Guid idCampagne) {
+			this.CurrentCampagne = this.Context.CampagneVerifications.FirstOrDefault(x => x.ID == idCampagne);
+			this.PopulateItems();
 		}
 		
 		#region ChangerStatutVerificationsCommand
@@ -119,9 +117,8 @@ namespace gestadh45.business.ViewModel.CampagnesVerificationVM
 
 		public bool CanExecuteValidateCommand() {
 			// On ne peut valider une campagne que si toutes ses vérifications ont été saisies (i.e. : aucune vérif n'a le statut par défaut)
-			return this.CurrentCampagne.Verifications
-				.Count(x => x.StatutVerification == StatutVerification.AVerifier) == 0;
-			//return this.CurrentItem.Verifications.Count(v => v.StatutVerification == StatutVerification.AVerifier) == 0;
+			return this.CurrentCampagne != null 
+				&& this.CurrentCampagne.Verifications.Count(x => x.StatutVerification == StatutVerification.AVerifier) == 0;
 		}
 
 		public void ExecuteValidateCommand() {
@@ -147,12 +144,14 @@ namespace gestadh45.business.ViewModel.CampagnesVerificationVM
 		
 		#region methods override
 		protected override void PopulateItems() {
-			base.PopulateItems();
-			
-			this.Items = this.Items
-				.Where(x => x.CampagneVerification.ID == this.CurrentCampagne.ID)
-				.OrderBy(x => x.Equipement.Modele.LibelleCourt)
-				.ThenBy(x => x.Equipement.Numero);
+			if (this.CurrentCampagne != null) {
+				base.PopulateItems();
+
+				this.Items = this.Items
+					.Where(x => x.CampagneVerification.ID == this.CurrentCampagne.ID)
+					.OrderBy(x => x.Equipement.Modele.LibelleCourt)
+					.ThenBy(x => x.Equipement.Numero);
+			}
 		}
 		
 		protected override void PopulateSpecificDatas() {

@@ -1,17 +1,7 @@
-﻿/*
- * Crée par SharpDevelop.
- * Utilisateur: Guillaume
- * Date: 03/03/2013
- * Heure: 11:18
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
-using System;
-using System.Collections.Generic;
+﻿using gestadh45.business.Enums;
+using gestadh45.model;
 using System.Collections.ObjectModel;
 using System.Linq;
-using gestadh45.business.Enums;
-using gestadh45.model;
 
 namespace gestadh45.business.ViewModel.ModeleVM
 {
@@ -60,7 +50,7 @@ namespace gestadh45.business.ViewModel.ModeleVM
 		}
 		#endregion
 		
-		public GestionModelesVM(string userConnectionString) : base(userConnectionString) {
+		public GestionModelesVM() : base() {
 			this.UCCode = CodesUC.GestionModeles;
 		}
 		

@@ -11,7 +11,8 @@
  	xmlns:model="clr-namespace:gestadh45.model;assembly=gestadh45.model"
 	xmlns:res="clr-namespace:gestadh45.wpf.Ressources"
  	mc:Ignorable="d" 
- 	d:DesignHeight="500" d:DesignWidth="600">
+ 	d:DesignHeight="500" d:DesignWidth="600"
+	DataContext="{Binding Source={StaticResource ResourceKey=Locator}, Path=ModelesVM}">
 	<DockPanel Margin="5,5,5,5">
 		<TextBlock DockPanel.Dock="Top"
 			Text="{Binding Source={x:Static enum:CodesUC.GestionModeles}, Converter={StaticResource ResourceKey=CodeUCToString}}"

@@ -1,19 +1,4 @@
-﻿/*
- * Crée par SharpDevelop.
- * Utilisateur: Guillaume
- * Date: 03/03/2013
- * Heure: 12:19
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Globalization;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.Enums;
 using gestadh45.business.PersonalizedMsg;
@@ -21,6 +6,11 @@ using gestadh45.business.ServicesAdapters;
 using gestadh45.model;
 using gestadh45.services.Reporting;
 using gestadh45.services.Reporting.Templates;
+using System;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Linq;
+using System.Windows.Input;
 
 namespace gestadh45.business.ViewModel.EquipementsVM
 {
@@ -80,7 +70,7 @@ namespace gestadh45.business.ViewModel.EquipementsVM
 		}
 		#endregion
 		
-		public GestionEquipementsVM(string userConnectionString) : base(userConnectionString) {
+		public GestionEquipementsVM() : base() {
 			this.UCCode = CodesUC.GestionEquipements;
 			this.AfficherRebut = false;
 			

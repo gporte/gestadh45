@@ -6,14 +6,6 @@ using gestadh45.business.ServicesAdapters;
 using gestadh45.model;
 using gestadh45.services.Reporting;
 using gestadh45.services.Reporting.Templates;
-/*
- * Crée par SharpDevelop.
- * Utilisateur: Guillaume
- * Date: 09/03/2013
- * Heure: 08:27
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,7 +21,7 @@ namespace gestadh45.business.ViewModel.CampagnesVerificationVM
 	/// </summary>
 	public class GestionCampagnesVerificationVM : GenericGestionVM<CampagneVerification>
 	{
-		public GestionCampagnesVerificationVM(string userConnectionString) : base(userConnectionString) {
+		public GestionCampagnesVerificationVM() : base() {
 			this.UCCode = CodesUC.GestionCampagnesVerification;
 			this.CreateSaisirCommand();
 		}

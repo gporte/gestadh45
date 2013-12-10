@@ -1,14 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using gestadh45.business.Enums;
 using gestadh45.model;
-/*
- * Crée par SharpDevelop.
- * Utilisateur: gp
- * Date: 08/03/2013
- * Heure: 13:34
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
 using System.Collections;
 using System.Data.Entity;
 using System.Globalization;
@@ -68,7 +60,7 @@ namespace gestadh45.business.ViewModel.EquipementsVM
 		}
 		#endregion
 		
-		public GestionLocalisationsEquipementVM(string userConnectionString) : base(userConnectionString) {
+		public GestionLocalisationsEquipementVM() : base() {
 			this.UCCode = CodesUC.GestionLocalisationsEquipements;
 			this.CreateDeplacerEquipementsCommand();
 		}

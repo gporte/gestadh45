@@ -1,25 +1,7 @@
-﻿/*
- * Crée par SharpDevelop.
- * Utilisateur: Guillaume
- * Date: 09/03/2013
- * Heure: 01:02
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-
-using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.PersonalizedMsg;
-using gestadh45.business.ViewModel.CampagnesVerificationVM;
 using gestadh45.model;
+using System.Windows.Controls;
 
 namespace gestadh45.wpf.UserControls.CampagnesVerificationUC
 {
@@ -31,7 +13,9 @@ namespace gestadh45.wpf.UserControls.CampagnesVerificationUC
 		public GestionSaisiesVerificationsUC(CampagneVerification campagne)
 		{
 			InitializeComponent();
-			this.DataContext = new GestionSaisiesVerificationsVM(UserSettings.Default.UserConnectionString, campagne.ID);
+
+			// envoi d'un msg au VM pour charger la campagne
+			Messenger.Default.Send(new NMLoadItem<CampagneVerification>(campagne));
 
 			Messenger.Default.Register<NMClearFilter>(this, msg => this.ClearFilter());
 			Messenger.Default.Register<NMSelectionElement<Verification>>(this, msg => this.ScrollToItem(msg.Content));
