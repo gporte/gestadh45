@@ -1,17 +1,7 @@
-﻿/*
- * Crée par SharpDevelop.
- * Utilisateur: Guillaume
- * Date: 02/03/2013
- * Heure: 20:47
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
-using System;
+﻿using gestadh45.business.Enums;
+using gestadh45.model;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Collections.Generic;
-using gestadh45.business.Enums;
-using gestadh45.model;
 
 namespace gestadh45.business.ViewModel.MarquesVM
 {
@@ -20,7 +10,7 @@ namespace gestadh45.business.ViewModel.MarquesVM
 	/// </summary>
 	public class GestionMarquesVM : GenericGestionVM<Marque>
 	{
-		public GestionMarquesVM(string userConnectionString) : base(userConnectionString) {
+		public GestionMarquesVM() : base() {
 			this.UCCode = CodesUC.GestionMarques;
 		}
 		

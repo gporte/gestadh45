@@ -1,24 +1,7 @@
-﻿/*
- * Crée par SharpDevelop.
- * Utilisateur: Guillaume
- * Date: 03/03/2013
- * Heure: 10:56
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.PersonalizedMsg;
-using gestadh45.business.ViewModel.LocalisationVM;
 using gestadh45.model;
+using System.Windows.Controls;
 
 namespace gestadh45.wpf.UserControls.LocalisationUC
 {
@@ -30,7 +13,6 @@ namespace gestadh45.wpf.UserControls.LocalisationUC
 		public GestionLocalisationsUC()
 		{
 			InitializeComponent();
-			this.DataContext = new GestionLocalisationsVM(UserSettings.Default.UserConnectionString);
 
 			Messenger.Default.Register<NMClearFilter>(this, msg => this.ClearFilter());
 			Messenger.Default.Register<NMSelectionElement<Localisation>>(this, msg => this.ScrollToItem(msg.Content));

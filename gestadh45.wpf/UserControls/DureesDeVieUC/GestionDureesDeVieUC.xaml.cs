@@ -1,25 +1,7 @@
-﻿/*
- * Crée par SharpDevelop.
- * Utilisateur: Guillaume
- * Date: 03/03/2013
- * Heure: 09:26
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-
-using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.PersonalizedMsg;
-using gestadh45.business.ViewModel.DureesDeVieVM;
 using gestadh45.model;
+using System.Windows.Controls;
 
 namespace gestadh45.wpf.UserControls.DureesDeVieUC
 {
@@ -31,7 +13,6 @@ namespace gestadh45.wpf.UserControls.DureesDeVieUC
 		public GestionDureesDeVieUC()
 		{
 			InitializeComponent();
-			this.DataContext = new GestionDureesDeVieVM(UserSettings.Default.UserConnectionString);
 
 			Messenger.Default.Register<NMClearFilter>(this, msg => this.ClearFilter());
 			Messenger.Default.Register<NMSelectionElement<DureeDeVie>>(this, msg => this.ScrollToItem(msg.Content));

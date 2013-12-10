@@ -3,14 +3,6 @@ using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.Enums;
 using gestadh45.business.PersonalizedMsg;
 using gestadh45.model;
-/*
- * Crée par SharpDevelop.
- * Utilisateur: Guillaume
- * Date: 02/03/2013
- * Heure: 15:47
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Globalization;
@@ -24,7 +16,7 @@ namespace gestadh45.business.ViewModel.SectionsVM
 	/// </summary>
 	public class GestionSectionsVM : GenericGestionVM<Section>
 	{
-		public GestionSectionsVM(string userConnectionString) : base(userConnectionString) {
+		public GestionSectionsVM() : base() {
 			this.UCCode = CodesUC.GestionSections;
 			this.CreateSetSectionDefautCommand();
 		}

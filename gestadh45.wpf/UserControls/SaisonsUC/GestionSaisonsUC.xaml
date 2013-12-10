@@ -12,7 +12,8 @@
 	xmlns:res="clr-namespace:gestadh45.wpf.Ressources"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
  	mc:Ignorable="d" 
- 	d:DesignHeight="500" d:DesignWidth="600">
+ 	d:DesignHeight="500" d:DesignWidth="600"
+	DataContext="{Binding Source={StaticResource ResourceKey=Locator}, Path=SaisonsVM}">
 	<DockPanel Margin="5,5,5,5">
 		<TextBlock DockPanel.Dock="Top"
 			Text="{Binding Source={x:Static enum:CodesUC.GestionSaisons}, Converter={StaticResource ResourceKey=CodeUCToString}}"

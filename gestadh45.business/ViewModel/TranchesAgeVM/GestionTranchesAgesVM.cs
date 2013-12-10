@@ -1,18 +1,7 @@
-﻿/*
- * Crée par SharpDevelop.
- * Utilisateur: Guillaume
- * Date: 02/03/2013
- * Heure: 20:02
- * 
- * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
- */
-using System;
-using System.Collections.Generic;
+﻿using gestadh45.business.Enums;
+using gestadh45.model;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Linq.Expressions;
-using gestadh45.business.Enums;
-using gestadh45.model;
 
 namespace gestadh45.business.ViewModel.TranchesAgeVM
 {
@@ -21,7 +10,7 @@ namespace gestadh45.business.ViewModel.TranchesAgeVM
 	/// </summary>
 	public class GestionTranchesAgesVM : GenericGestionVM<TrancheAge>
 	{
-		public GestionTranchesAgesVM(string userConnectionString) : base(userConnectionString) {
+		public GestionTranchesAgesVM() : base() {
 			this.UCCode = CodesUC.GestionTranchesAge;
 		}
 		
