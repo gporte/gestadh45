@@ -3,9 +3,9 @@ using GalaSoft.MvvmLight.Messaging;
 using gestadh45.business.Enums;
 using gestadh45.business.PersonalizedMsg;
 using gestadh45.dal;
-using System.Data.SqlServerCe;
+using gestadh45.services.Database;
+using System.Data.Common;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Windows.Input;
 
@@ -184,8 +184,7 @@ namespace gestadh45.business.ViewModel.MainScreenVM
 				
 				// si le fichier de BDD n'existe pas, on le créé
 				if(!this.CheckDbFile()) {
-					var engine = new SqlCeEngine(this.LastDbConnectionString);
-					engine.CreateDatabase();
+					DatabaseService.CreateSqlCeDatabase(this.LastDbConnectionString);
 				}
 				
 				if(!this.CheckConnection()) { // connexion KO
@@ -213,8 +212,7 @@ namespace gestadh45.business.ViewModel.MainScreenVM
 		/// </summary>
 		/// <returns>True si le fichier existe, False sinon</returns>
 		private bool CheckDbFile() {
-			var cs = new SqlCeConnectionStringBuilder(this.LastDbConnectionString);			
-			return File.Exists(cs.DataSource);
+			return DatabaseService.SqlCeDBExists(this.LastDbConnectionString);
 		}
 		
 		/// <summary>
@@ -234,7 +232,7 @@ namespace gestadh45.business.ViewModel.MainScreenVM
 				
 				result = true;
 			}
-			catch(SqlCeException) {
+			catch (DbException) {
 				result = false;
 			}
 			
