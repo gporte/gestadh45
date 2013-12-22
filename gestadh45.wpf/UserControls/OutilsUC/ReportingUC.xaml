@@ -8,7 +8,7 @@
 			 xmlns:enum="clr-namespace:gestadh45.business.Enums;assembly=gestadh45.business"
 			 mc:Ignorable="d" 
 			 d:DesignHeight="400" d:DesignWidth="600"
-			 DataContext="{Binding Source={StaticResource ResourceKey=Locator}, Path=ReportVM}">
+			 DataContext="{Binding Source={StaticResource ResourceKey=Locator}, Path=ReportVM}" Unloaded="UserControl_Unloaded">
 	<DockPanel Margin="5,5,5,5">
 		<StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center">
 			<TextBlock DockPanel.Dock="Top"

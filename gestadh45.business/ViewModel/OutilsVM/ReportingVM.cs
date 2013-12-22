@@ -82,6 +82,21 @@ namespace gestadh45.business.ViewModel.OutilsVM
 		public ReportingVM() : base() {
 			this.PopulateListeReports();
 			this.CreateChangeReportCommand();
+
+			Messenger.Default.Register<NMRefreshDatas>(this, msg => this.ResetDataCaches(msg.CodeUC));
+		}
+
+		private void ResetDataCaches(CodesUC codeUc) {
+			if (codeUc.Equals(CodesUC.EcranReporting)) {
+				if (this._cacheInventaireComplet != null && this._cacheInventaireComplet.Count > 0) { this._cacheInventaireComplet.Clear(); }
+				if (this._cacheInventaireSimple != null && this._cacheInventaireSimple.Count > 0) { this._cacheInventaireSimple.Clear(); }
+				if (this._cacheListeAdherents != null && this._cacheListeAdherents.Count > 0) { this._cacheListeAdherents.Clear(); }
+				if (this._cacheRepartitionAdherentsAge != null && this._cacheRepartitionAdherentsAge.Count > 0) { this._cacheRepartitionAdherentsAge.Clear(); }
+				if (this._cacheRepartitionAdherentsAgeLicenceVille != null && this._cacheRepartitionAdherentsAgeLicenceVille.Count > 0) { this._cacheRepartitionAdherentsAgeLicenceVille.Clear(); }
+				if (this._cacheCertificatsManquants != null && this._cacheCertificatsManquants.Count > 0) { this._cacheCertificatsManquants.Clear(); }
+				if (this._cacheRepartitionAdherentsGroupes != null && this._cacheRepartitionAdherentsGroupes.Count > 0) { this._cacheRepartitionAdherentsGroupes.Clear(); }
+				if (this._cacheInscriptionsASuivre != null && this._cacheInscriptionsASuivre.Count > 0) { this._cacheInscriptionsASuivre.Clear(); }
+			}
 		}
 		#endregion
 
@@ -116,7 +131,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 
 			switch (codeReport) {
 				case CodesReport.InventaireSimpleEquipementExcel:
-					if (this._cacheInventaireSimple == null) {
+					if (this._cacheInventaireSimple == null || this._cacheInventaireSimple.Count == 0) {
 						this._cacheInventaireSimple = ServiceReportingAdapter.EquipementsToReportInventaireEquipementSimple(
 							this.Context.Equipements.ToList().Where(e => !e.EstAuRebut).OrderBy(e => e.Numero).ToList()
 						);
@@ -126,7 +141,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 					break;
 
 				case CodesReport.InventaireCompletEquipementExcel:
-					if (this._cacheInventaireComplet == null) {
+					if (this._cacheInventaireComplet == null || this._cacheInventaireComplet.Count == 0) {
 						this._cacheInventaireComplet = ServiceReportingAdapter.EquipementsToReportInventaireEquipementComplet(
 							this.Context.Equipements.ToList().Where(e => !e.EstAuRebut).OrderBy(e => e.Numero).ToList()
 						);
@@ -136,7 +151,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 					break;
 
 				case CodesReport.ListeAdherents:
-					if (this._cacheListeAdherents == null) {
+					if (this._cacheListeAdherents == null || this._cacheListeAdherents.Count == 0) {
 						this._cacheListeAdherents = ServiceReportingAdapter.InscriptionsToListeAdherents(
 							this.Context.Inscriptions.ToList()
 							.Where(i => 
@@ -151,7 +166,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 					break;
 
 				case CodesReport.RepartitionAdherentsAge:
-					if (this._cacheRepartitionAdherentsAge == null) {
+					if (this._cacheRepartitionAdherentsAge == null || this._cacheRepartitionAdherentsAge.Count == 0) {
 						this._cacheRepartitionAdherentsAge = ServiceReportingAdapter.InscriptionsToReportRepartitionAdherentsAge(
 							this.Context.TrancheAges.OrderBy(t => t.AgeInf).ToList(),
 							this.Context.InfosClub.FirstOrDefault().Ville,
@@ -167,7 +182,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 					break;
 
 				case CodesReport.RepartitionAdherentsAgeLicenceVille:
-					if (this._cacheRepartitionAdherentsAgeLicenceVille == null) {
+					if (this._cacheRepartitionAdherentsAgeLicenceVille == null || this._cacheRepartitionAdherentsAgeLicenceVille.Count == 0) {
 						this._cacheRepartitionAdherentsAgeLicenceVille = ServiceReportingAdapter.InscriptionsToReportRepartitionAdherentsAgeLicenceVille(
 							this.Context.TrancheAges.OrderBy(t => t.AgeInf).ToList(),
 							this.Context.InfosClub.FirstOrDefault().Ville,
@@ -183,7 +198,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 					break;
 
 				case CodesReport.CertificatsManquants:
-					if (this._cacheCertificatsManquants == null) {
+					if (this._cacheCertificatsManquants == null || this._cacheCertificatsManquants.Count == 0) {
 						this._cacheCertificatsManquants = ServiceReportingAdapter.InscriptionsToListeAdherents(
 							this.Context.Inscriptions.ToList().Where(i => 
 								i.Groupe.Saison.EstSaisonCourante
@@ -197,7 +212,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 					break;
 
 				case CodesReport.RepartitionAdherentsGroupes:
-					if(this._cacheRepartitionAdherentsGroupes == null) {
+					if (this._cacheRepartitionAdherentsGroupes == null || this._cacheRepartitionAdherentsGroupes.Count == 0) {
 						this._cacheRepartitionAdherentsGroupes = ServiceReportingAdapter.InscriptionsToReportRepartitionAhderentsGroupes(
 							this.Context.Groupes.Where(x => x.Saison.EstSaisonCourante).ToList()
 						);
@@ -207,7 +222,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 					break;
 					
 				case CodesReport.InscriptionsASuivre:
-					if(this._cacheInscriptionsASuivre == null) {
+					if (this._cacheInscriptionsASuivre == null || this._cacheInscriptionsASuivre.Count == 0) {
 						this._cacheInscriptionsASuivre = ServiceReportingAdapter.InscriptionsToReportInscriptionsASuivre(
 							this.Context.Inscriptions.Where(x => x.Groupe.Saison.EstSaisonCourante && x.StatutInscription == StatutInscription.ASuivre).ToList()
 						);

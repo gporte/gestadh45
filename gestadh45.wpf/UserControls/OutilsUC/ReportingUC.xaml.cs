@@ -1,4 +1,7 @@
-﻿using gestadh45.services.Reporting.Templates;
+﻿using GalaSoft.MvvmLight.Messaging;
+using gestadh45.business.Enums;
+using gestadh45.business.PersonalizedMsg;
+using gestadh45.services.Reporting.Templates;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Windows.Controls;
@@ -21,6 +24,10 @@ namespace gestadh45.wpf.UserControls.OutilsUC
 			if (displayAttrib != null) {
 				e.Column.Header = ResReports.ResourceManager.GetString(displayAttrib.Name);
 			}
+		}
+
+		private void UserControl_Unloaded(object sender, System.Windows.RoutedEventArgs e) {
+			Messenger.Default.Send(new NMRefreshDatas(CodesUC.EcranReporting));
 		}
 	}
 }
