@@ -184,7 +184,7 @@ namespace gestadh45.wpf
 					userControl = new GestionCampagnesVerificationUC();
 					break;
 
-				case CodesUC.EcranStatistiques:
+				case CodesUC.Graphiques:
 					userControl = new GraphiquesUC();
 					break;
 

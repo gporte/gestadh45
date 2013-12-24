@@ -87,6 +87,8 @@ namespace gestadh45.business.ViewModel.OutilsVM
 		private const string ResourceBaseName = "gestadh45.business.ViewModel.OutilsVM.ResGraphiques";
 
 		public GraphiquesVM() : base() {
+			this.UCCode = CodesUC.Graphiques;
+
 			this._groupesSaisonCourante = this.Context.Groupes
 				.Where(grp => grp.Saison.EstSaisonCourante)
 				.OrderBy(grp => grp.JourSemaine)

@@ -27,6 +27,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 
 		#region Constructor
 		public NettoyageCNILVM() : base() {
+			this.UCCode = Enums.CodesUC.NettoyageCNIL;
 			this.CreateGetOldInscriptionsCommand();
 			this.CreateCleanDatasCommand();
 		}

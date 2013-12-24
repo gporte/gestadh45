@@ -14,6 +14,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 	{
 		#region Constructeur
 		public BackupVM() : base() {
+			this.UCCode = CodesUC.Backup;
 			this.CreateCommands();
 		}
 		#endregion

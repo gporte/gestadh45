@@ -104,6 +104,7 @@
     <Compile Include="PersonalizedMsg\NMMainMenuState.cs" />
     <Compile Include="PersonalizedMsg\NMRefreshDatas.cs" />
     <Compile Include="PersonalizedMsg\NMLoadItem.cs" />
+    <Compile Include="PersonalizedMsg\NMResetUC.cs" />
     <Compile Include="PersonalizedMsg\NMSetUserSetting.cs" />
     <Compile Include="PersonalizedMsg\NMShowInfosDataSource.cs" />
     <Compile Include="ServicesAdapters\ResBackupAdapter.Designer.cs">

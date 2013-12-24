@@ -116,7 +116,7 @@ namespace gestadh45.business.Enums
 		/// <summary>
 		/// Ecran graphiques.
 		/// </summary>
-		EcranStatistiques,
+		Graphiques,
 		
 		/// <summary>
 		/// Nettoyage CNIL.

@@ -27,7 +27,7 @@ namespace gestadh45.wpf.UserControls.OutilsUC
 		}
 
 		private void UserControl_Unloaded(object sender, System.Windows.RoutedEventArgs e) {
-			Messenger.Default.Send(new NMRefreshDatas(CodesUC.EcranReporting));
+			Messenger.Default.Send(new NMResetUC(CodesUC.EcranReporting));
 		}
 	}
 }

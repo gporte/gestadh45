@@ -49,6 +49,8 @@ namespace gestadh45.business.ViewModel.MainScreenVM
 		
 		#region Constructeurs
 		public MainScreenCheckVM() : base() {
+			this.UCCode = CodesUC.MainScreenCheck;
+
 			this.CreateCommands();
 			
 			this.LastDbConnectionString = this.GetUserSetting(ResCommon.Setting_UserConnectionString);

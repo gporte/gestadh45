@@ -54,6 +54,7 @@ namespace gestadh45.business.ViewModel
 			this.Context.SetConnection(this.GetUserSetting(ResCommon.Setting_UserConnectionString));
 
 			Messenger.Default.Send(new NMShowInfosDataSource(this.Context.Database.Connection.ConnectionString));
+			Messenger.Default.Register<NMResetUC>(this, m => { if (m.CodeUC.Equals(this.UCCode)) this.ResetDatas(); });
 		}
 		#endregion
 
@@ -105,5 +106,7 @@ namespace gestadh45.business.ViewModel
 				this.Context.Dispose();
 			}
 		}
+
+		protected virtual void ResetDatas() { }
 	}
 }

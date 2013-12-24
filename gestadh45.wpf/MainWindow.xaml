@@ -156,7 +156,7 @@
 				</my:RibbonGroup>
 				<my:RibbonGroup Header="{x:Static res:UI_Labels.Menu_Graphiques}">
 					<my:RibbonButton Command="{Binding Path=ShowUCCommand}"
-										  CommandParameter="{x:Static enum:CodesUC.EcranStatistiques}"
+										  CommandParameter="{x:Static enum:CodesUC.Graphiques}"
 										  LargeImageSource="/gestadh45.wpf;component/Images/btn_statistiques.png" 
 										  SmallImageSource="/gestadh45.wpf;component/Images/btn_statistiques.png">
 					</my:RibbonButton>

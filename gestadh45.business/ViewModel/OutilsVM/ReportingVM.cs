@@ -80,23 +80,20 @@ namespace gestadh45.business.ViewModel.OutilsVM
 
 		#region Constructeur
 		public ReportingVM() : base() {
+			this.UCCode = CodesUC.EcranReporting;
 			this.PopulateListeReports();
 			this.CreateChangeReportCommand();
-
-			Messenger.Default.Register<NMRefreshDatas>(this, msg => this.ResetDataCaches(msg.CodeUC));
 		}
 
-		private void ResetDataCaches(CodesUC codeUc) {
-			if (codeUc.Equals(CodesUC.EcranReporting)) {
-				if (this._cacheInventaireComplet != null && this._cacheInventaireComplet.Count > 0) { this._cacheInventaireComplet.Clear(); }
-				if (this._cacheInventaireSimple != null && this._cacheInventaireSimple.Count > 0) { this._cacheInventaireSimple.Clear(); }
-				if (this._cacheListeAdherents != null && this._cacheListeAdherents.Count > 0) { this._cacheListeAdherents.Clear(); }
-				if (this._cacheRepartitionAdherentsAge != null && this._cacheRepartitionAdherentsAge.Count > 0) { this._cacheRepartitionAdherentsAge.Clear(); }
-				if (this._cacheRepartitionAdherentsAgeLicenceVille != null && this._cacheRepartitionAdherentsAgeLicenceVille.Count > 0) { this._cacheRepartitionAdherentsAgeLicenceVille.Clear(); }
-				if (this._cacheCertificatsManquants != null && this._cacheCertificatsManquants.Count > 0) { this._cacheCertificatsManquants.Clear(); }
-				if (this._cacheRepartitionAdherentsGroupes != null && this._cacheRepartitionAdherentsGroupes.Count > 0) { this._cacheRepartitionAdherentsGroupes.Clear(); }
-				if (this._cacheInscriptionsASuivre != null && this._cacheInscriptionsASuivre.Count > 0) { this._cacheInscriptionsASuivre.Clear(); }
-			}
+		protected override void ResetDatas() {
+			if (this._cacheInventaireComplet != null && this._cacheInventaireComplet.Count > 0) { this._cacheInventaireComplet.Clear(); }
+			if (this._cacheInventaireSimple != null && this._cacheInventaireSimple.Count > 0) { this._cacheInventaireSimple.Clear(); }
+			if (this._cacheListeAdherents != null && this._cacheListeAdherents.Count > 0) { this._cacheListeAdherents.Clear(); }
+			if (this._cacheRepartitionAdherentsAge != null && this._cacheRepartitionAdherentsAge.Count > 0) { this._cacheRepartitionAdherentsAge.Clear(); }
+			if (this._cacheRepartitionAdherentsAgeLicenceVille != null && this._cacheRepartitionAdherentsAgeLicenceVille.Count > 0) { this._cacheRepartitionAdherentsAgeLicenceVille.Clear(); }
+			if (this._cacheCertificatsManquants != null && this._cacheCertificatsManquants.Count > 0) { this._cacheCertificatsManquants.Clear(); }
+			if (this._cacheRepartitionAdherentsGroupes != null && this._cacheRepartitionAdherentsGroupes.Count > 0) { this._cacheRepartitionAdherentsGroupes.Clear(); }
+			if (this._cacheInscriptionsASuivre != null && this._cacheInscriptionsASuivre.Count > 0) { this._cacheInscriptionsASuivre.Clear(); }
 		}
 		#endregion
 
