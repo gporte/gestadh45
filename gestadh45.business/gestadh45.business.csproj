@@ -102,7 +102,6 @@
     <Compile Include="PersonalizedMsg\NMAskConfirmationDialog.cs" />
     <Compile Include="PersonalizedMsg\NMGetUserSetting.cs" />
     <Compile Include="PersonalizedMsg\NMMainMenuState.cs" />
-    <Compile Include="PersonalizedMsg\NMRefreshDatas.cs" />
     <Compile Include="PersonalizedMsg\NMLoadItem.cs" />
     <Compile Include="PersonalizedMsg\NMResetUC.cs" />
     <Compile Include="PersonalizedMsg\NMSetUserSetting.cs" />

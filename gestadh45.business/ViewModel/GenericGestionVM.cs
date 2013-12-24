@@ -69,8 +69,6 @@ namespace gestadh45.business.ViewModel
 			this.CreateSaveItemCommand();
 			this.CreateShowDetailsCommand();
 			this.CreateFilterCommand();
-
-			Messenger.Default.Register<NMRefreshDatas>(this, m => this.PopulateSpecificDatas());
 		}
 		#endregion
 		
