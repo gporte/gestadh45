@@ -81,21 +81,25 @@ namespace gestadh45.business.ViewModel.OutilsVM
 		}
 
 		private void CleanDatas(bool doClean) {
-			foreach (var adh in this.OldAdherents) {
-				foreach (var ins in adh.Inscriptions) {
-					this.Context.Entry(ins).State = EntityState.Deleted;
+			if (doClean) {
+				// on utilise ToList de façon à ce que le fore-each s'effectue sur une copie de la collection d'éléments
+				// sinon on lève une exception car lors de la modification du State, la collection originale est modifiée
+				foreach (var adh in this.OldAdherents.ToList()) {
+					foreach (var ins in adh.Inscriptions.ToList()) {
+						this.Context.Entry(ins).State = EntityState.Deleted;
+					}
+					
+					this.Context.Entry(adh).State = EntityState.Deleted;
 				}
-
-				this.Context.Entry(adh).State = EntityState.Deleted;
-			}
 			
-			// puis on supprime tous les groupes qui ne sont pas de la saison courante ET qui n'ont pas d'inscriptions
-			var oldGroupes = this.Context.Groupes.Where(g => !g.Saison.EstSaisonCourante && g.Inscriptions.Count == 0);
-			foreach (var groupe in oldGroupes) {
-				this.Context.Entry(groupe).State = EntityState.Deleted;
-			}
+				// puis on supprime tous les groupes qui ne sont pas de la saison courante ET qui n'ont pas d'inscriptions
+				var oldGroupes = this.Context.Groupes.Where(g => !g.Saison.EstSaisonCourante && g.Inscriptions.Count == 0);
+				foreach (var groupe in oldGroupes) {
+					this.Context.Entry(groupe).State = EntityState.Deleted;
+				}
 			
-			this.Context.SaveChanges();
+				this.Context.SaveChanges();
+			}
 		}
 		#endregion
 	}
