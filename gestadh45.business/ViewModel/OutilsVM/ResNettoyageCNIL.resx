@@ -120,4 +120,7 @@
   <data name="ConfirmationNettoyage" xml:space="preserve">
     <value>Etes-vous sûr de vouloir supprimer ces {0} adhérents (et toutes les inscriptions associées)?</value>
   </data>
+  <data name="InfoNettoyageTermine" xml:space="preserve">
+    <value>Les adhérents, inscriptions et groupes obsolètes ont été supprimés).</value>
+  </data>
 </root>

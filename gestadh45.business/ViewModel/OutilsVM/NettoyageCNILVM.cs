@@ -99,6 +99,12 @@ namespace gestadh45.business.ViewModel.OutilsVM
 				}
 			
 				this.Context.SaveChanges();
+
+				// notif utilisateur
+				this.ShowUserNotification(ResNettoyageCNIL.InfoNettoyageTermine);
+
+				// on relance une recherche
+				this.ExecuteGetOldAdherentsCommand();
 			}
 		}
 		#endregion
