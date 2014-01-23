@@ -94,7 +94,7 @@ namespace gestadh45.business.ViewModel.OutilsVM
 			
 				// puis on supprime tous les groupes qui ne sont pas de la saison courante ET qui n'ont pas d'inscriptions
 				var oldGroupes = this.Context.Groupes.Where(g => !g.Saison.EstSaisonCourante && g.Inscriptions.Count == 0);
-				foreach (var groupe in oldGroupes) {
+				foreach (var groupe in oldGroupes.ToList()) {
 					this.Context.Entry(groupe).State = EntityState.Deleted;
 				}
 			
