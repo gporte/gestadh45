@@ -103,10 +103,10 @@
 									<Style TargetType="{x:Type Image}">
 										<Setter Property="Source" Value="/gestadh45.wpf;component/Images/btn_unknown.png" />
 										<Style.Triggers>
-											<DataTrigger Binding="{Binding Path=SelectedItem.Adherent.Sexe}" Value="{x:Static model:Sexe.M}">
+											<DataTrigger Binding="{Binding Path=SelectedItem.Adherent.Sexe}" Value="{x:Static model:Sexe.Masculin}">
 												<Setter Property="Source" Value="/gestadh45.wpf;component/Images/man.png" />
 											</DataTrigger>
-											<DataTrigger Binding="{Binding Path=SelectedItem.Adherent.Sexe}" Value="{x:Static model:Sexe.F}">
+											<DataTrigger Binding="{Binding Path=SelectedItem.Adherent.Sexe}" Value="{x:Static model:Sexe.Feminin}">
 												<Setter Property="Source" Value="/gestadh45.wpf;component/Images/woman.png" />
 											</DataTrigger>
 										</Style.Triggers>
