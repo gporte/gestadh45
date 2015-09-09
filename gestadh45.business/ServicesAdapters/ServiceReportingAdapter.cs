@@ -115,28 +115,28 @@ namespace gestadh45.business.ServicesAdapters
 				};
 
 				item.NbHommesResident = inscriptions.Count(i =>
-					i.Adherent.Sexe == Sexe.M
+					i.Adherent.Sexe == Sexe.Masculin
 					&& i.Adherent.Ville.ID == villeResident.ID
 					&& i.Adherent.Age >= tranche.AgeInf
 					&& i.Adherent.Age <= tranche.AgeSup
 				);
 
 				item.NbFemmesResident = inscriptions.Count(i =>
-					i.Adherent.Sexe == Sexe.F
+					i.Adherent.Sexe == Sexe.Feminin
 					&& i.Adherent.Ville.ID == villeResident.ID
 					&& i.Adherent.Age >= tranche.AgeInf
 					&& i.Adherent.Age <= tranche.AgeSup
 				);
 
 				item.NbHommesExterieur = inscriptions.Count(i =>
-					i.Adherent.Sexe == Sexe.M
+					i.Adherent.Sexe == Sexe.Masculin
 					&& i.Adherent.Ville.ID != villeResident.ID
 					&& i.Adherent.Age >= tranche.AgeInf
 					&& i.Adherent.Age <= tranche.AgeSup
 				);
 
 				item.NbFemmesExterieur = inscriptions.Count(i =>
-					i.Adherent.Sexe == Sexe.F
+					i.Adherent.Sexe == Sexe.Feminin
 					&& i.Adherent.Ville.ID != villeResident.ID
 					&& i.Adherent.Age >= tranche.AgeInf
 					&& i.Adherent.Age <= tranche.AgeSup

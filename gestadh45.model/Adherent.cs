@@ -13,8 +13,8 @@ namespace gestadh45.model
 {
 	public enum Sexe
 	{
-		M,
-		F
+		Masculin,
+		Feminin
 	}
 	
 	public class Adherent : BaseModel, ICloneable

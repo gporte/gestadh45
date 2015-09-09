@@ -12,7 +12,6 @@
   See http://www.galasoft.ch/mvvm
 */
 
-using GalaSoft.MvvmLight.Ioc;
 using gestadh45.business.ViewModel.AdherentsVM;
 using gestadh45.business.ViewModel.CampagnesVerificationVM;
 using gestadh45.business.ViewModel.CategoriesVM;
@@ -30,191 +29,115 @@ using gestadh45.business.ViewModel.SaisonsVM;
 using gestadh45.business.ViewModel.SectionsVM;
 using gestadh45.business.ViewModel.TranchesAgeVM;
 using gestadh45.business.ViewModel.VillesVM;
-using Microsoft.Practices.ServiceLocation;
-using System;
 
 namespace gestadh45.business.ViewModel
 {
-    /// <summary>
-    /// This class contains static references to all the view models in the
-    /// application and provides an entry point for the bindings.
-    /// </summary>
-    public class ViewModelLocator
+	public class ViewModelLocator
     {
-		private static string _currentKey = Guid.NewGuid().ToString();
-
-		public static string CurrentKey {
-			get {
-				return _currentKey;
-			}
-			private set {
-				_currentKey = value;
-			}
-		}
-		
-		/// <summary>
-        /// Initializes a new instance of the ViewModelLocator class.
-        /// </summary>
-        public ViewModelLocator()
-        {
-            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
-
-			// Global
-            SimpleIoc.Default.Register<MainViewModel>();
-			SimpleIoc.Default.Register<MainScreenCheckVM>();
-			SimpleIoc.Default.Register<InitialisationDatabaseVM>();
-			SimpleIoc.Default.Register<GestionInfosClubVM>();
-
-			// inscriptions
-			SimpleIoc.Default.Register<GestionGroupesVM>();
-			SimpleIoc.Default.Register<GestionAdherentsVM>();
-			SimpleIoc.Default.Register<GestionInscriptionsVM>();
-
-			// équipements
-			SimpleIoc.Default.Register<GestionModelesVM>();
-			SimpleIoc.Default.Register<GestionEquipementsVM>();
-			SimpleIoc.Default.Register<GestionLocalisationsEquipementVM>();
-			SimpleIoc.Default.Register<GestionCampagnesVerificationVM>();
-			SimpleIoc.Default.Register<GestionSaisiesVerificationsVM>();
-
-			// référentiel
-			SimpleIoc.Default.Register<GestionVillesVM>();
-			SimpleIoc.Default.Register<GestionSaisonsVM>();
-			SimpleIoc.Default.Register<GestionTranchesAgesVM>();
-			SimpleIoc.Default.Register<GestionSectionsVM>();
-			SimpleIoc.Default.Register<GestionMarquesVM>();
-			SimpleIoc.Default.Register<GestionDureesDeVieVM>();
-			SimpleIoc.Default.Register<GestionDureesDeVieVM>();
-			SimpleIoc.Default.Register<GestionCategoriesVM>();
-			SimpleIoc.Default.Register<GestionLocalisationsVM>();
-
-			// outils
-			SimpleIoc.Default.Register<ReportingVM>();
-			SimpleIoc.Default.Register<GraphiquesVM>();
-			SimpleIoc.Default.Register<NettoyageCNILVM>();
-			SimpleIoc.Default.Register<BackupVM>();
-        }
-
 		#region global
 		public MainViewModel MainVM {
-			get { return ServiceLocator.Current.GetInstance<MainViewModel>(CurrentKey); }
-        }
+			get { return new MainViewModel(); }
+		}
 
 		public MainScreenCheckVM MainScreenVM {
-			get { return ServiceLocator.Current.GetInstance<MainScreenCheckVM>(CurrentKey); }
+			get { return new MainScreenCheckVM(); }
 		}
 
 		public InitialisationDatabaseVM InitDbVM {
-			get { return ServiceLocator.Current.GetInstance<InitialisationDatabaseVM>(CurrentKey); }
+			get { return new InitialisationDatabaseVM(); }
 		}
 
 		public GestionInfosClubVM InfosClubVM {
-			get { return ServiceLocator.Current.GetInstance<GestionInfosClubVM>(CurrentKey); }
+			get { return new GestionInfosClubVM(); }
 		}
 		#endregion
 
 		#region inscriptions
 		public GestionGroupesVM GroupesVM {
-			get { return ServiceLocator.Current.GetInstance<GestionGroupesVM>(CurrentKey); }
+			get { return new GestionGroupesVM(); }
 		}
 
 		public GestionAdherentsVM AdherentsVM {
-			get { return ServiceLocator.Current.GetInstance<GestionAdherentsVM>(CurrentKey); }
+			get { return new GestionAdherentsVM(); }
 		}
 
 		public GestionInscriptionsVM InscriptionsVM {
-			get { return ServiceLocator.Current.GetInstance<GestionInscriptionsVM>(CurrentKey); }
+			get { return new GestionInscriptionsVM(); }
 		}
 		#endregion
 
 		#region équipements
 		public GestionModelesVM ModelesVM {
-			get { return ServiceLocator.Current.GetInstance<GestionModelesVM>(CurrentKey); }
+			get { return new GestionModelesVM(); }
 		}
 
 		public GestionEquipementsVM EquipementsVM {
-			get { return ServiceLocator.Current.GetInstance<GestionEquipementsVM>(CurrentKey); }
+			get { return new GestionEquipementsVM(); }
 		}
 
 		public GestionLocalisationsEquipementVM LocalisationEquipementVM {
-			get { return ServiceLocator.Current.GetInstance<GestionLocalisationsEquipementVM>(CurrentKey); }
+			get { return new GestionLocalisationsEquipementVM(); }
 		}
 
 		public GestionCampagnesVerificationVM CampagnesVerificationVM {
-			get { return ServiceLocator.Current.GetInstance<GestionCampagnesVerificationVM>(CurrentKey); }
+			get { return new GestionCampagnesVerificationVM(); }
 		}
 
 		public GestionSaisiesVerificationsVM SaisiesVerificationsVM {
-			get { return ServiceLocator.Current.GetInstance<GestionSaisiesVerificationsVM>(CurrentKey); }
+			get { return new GestionSaisiesVerificationsVM(); }
 		}
 		#endregion
 
 		#region référentiel
 		public GestionVillesVM VillesVM {
-			get { return ServiceLocator.Current.GetInstance<GestionVillesVM>(CurrentKey); }
+			get { return new GestionVillesVM(); }
 		}
 
 		public GestionSaisonsVM SaisonsVM {
-			get { return ServiceLocator.Current.GetInstance<GestionSaisonsVM>(CurrentKey); }
+			get { return new GestionSaisonsVM(); }
 		}
 
 		public GestionTranchesAgesVM TranchesAgesVM {
-			get { return ServiceLocator.Current.GetInstance<GestionTranchesAgesVM>(CurrentKey); }
+			get { return new GestionTranchesAgesVM(); }
 		}
 
 		public GestionSectionsVM SectionsVM {
-			get { return ServiceLocator.Current.GetInstance<GestionSectionsVM>(CurrentKey); }
+			get { return new GestionSectionsVM(); }
 		}
 
 		public GestionMarquesVM MarquesVM {
-			get { return ServiceLocator.Current.GetInstance<GestionMarquesVM>(CurrentKey); }
+			get { return new GestionMarquesVM(); }
 		}
 
 		public GestionDureesDeVieVM DureesDeVieVM {
-			get { return ServiceLocator.Current.GetInstance<GestionDureesDeVieVM>(CurrentKey); }
+			get { return new GestionDureesDeVieVM(); }
 		}
 
 		public GestionCategoriesVM CategoriesVM {
-			get { return ServiceLocator.Current.GetInstance<GestionCategoriesVM>(CurrentKey); }
+			get { return new GestionCategoriesVM(); }
 		}
 
 		public GestionLocalisationsVM LocalisationsVM {
-			get { return ServiceLocator.Current.GetInstance<GestionLocalisationsVM>(CurrentKey); }
+			get { return new GestionLocalisationsVM(); }
 		}
 		#endregion
 
 		#region outils
 		public ReportingVM ReportVM {
-			get { return ServiceLocator.Current.GetInstance<ReportingVM>(CurrentKey); }
+			get { return new ReportingVM(); }
 		}
 
 		public GraphiquesVM GraphsVM {
-			get { return ServiceLocator.Current.GetInstance<GraphiquesVM>(CurrentKey); }
+			get { return new GraphiquesVM(); }
 		}
 
 		public NettoyageCNILVM CnilVM {
-			get { return ServiceLocator.Current.GetInstance<NettoyageCNILVM>(CurrentKey); }
+			get { return new NettoyageCNILVM(); }
 		}
 
 		public BackupVM BakVM {
-			get { return ServiceLocator.Current.GetInstance<BackupVM>(CurrentKey); }
+			get { return new BackupVM(); }
 		}
 		#endregion
-
-		public static void Cleanup()
-        {
-            // TODO Clear the ViewModels
-        }
     }
 }

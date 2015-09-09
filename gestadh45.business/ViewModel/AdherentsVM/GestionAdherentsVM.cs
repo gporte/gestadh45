@@ -103,7 +103,7 @@ namespace gestadh45.business.ViewModel.AdherentsVM
 				DateModification = DateTime.Now,
 				Adresse = ResAdherents.DefautAdresse,
 				Ville = this.Context.InfosClub.FirstOrDefault().Ville,
-				Sexe = Sexe.M
+				Sexe = Sexe.Masculin
 			};
 		}
 		

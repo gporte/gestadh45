@@ -179,11 +179,11 @@ namespace gestadh45.business.ViewModel.OutilsVM
 		private List<KeyValuePair<string, int>> GetRepartitionHommeFemmes() {
 			List<KeyValuePair<string, int>> keyValues = new List<KeyValuePair<string, int>>();
 
-			int nbM = this._inscriptionsSaisonCourante.Count(ins => ins.Adherent.Sexe == Sexe.M);
-			int nbF = this._inscriptionsSaisonCourante.Count(ins => ins.Adherent.Sexe == Sexe.F);
+			int nbM = this._inscriptionsSaisonCourante.Count(ins => ins.Adherent.Sexe == Sexe.Masculin);
+			int nbF = this._inscriptionsSaisonCourante.Count(ins => ins.Adherent.Sexe == Sexe.Feminin);
 
-			keyValues.Add(new KeyValuePair<string, int>(Sexe.M.ToString(), nbM));
-			keyValues.Add(new KeyValuePair<string, int>(Sexe.F.ToString(), nbF));
+			keyValues.Add(new KeyValuePair<string, int>(Sexe.Masculin.ToString(), nbM));
+			keyValues.Add(new KeyValuePair<string, int>(Sexe.Feminin.ToString(), nbF));
 
 			return keyValues;
 		}
