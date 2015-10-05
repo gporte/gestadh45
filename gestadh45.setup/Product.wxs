@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define gestadh45.wpf_TargetDir=$(var.gestadh45.wpf.TargetDir)?>
+  <Product Id="*" Name="Gestadh45" Language="1033" Codepage="1252" Version="1.0.0.0" Manufacturer="Guillaume Porte" UpgradeCode="9c33c897-f257-4f47-8fa9-9a4cbab2a590">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high" />
+
+    <Feature Id="ProductFeature" Title="Gestadh45" Description="Coeur de l'application" Level="1" Absent="disallow">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+
+    <Feature Id="SqlCE40" Title="SQL Server CE 4.0" Description="Installez ce composant si SQL Server CE 4.0 n'est pas déjà installé sur votre système." Level="1">
+      <ComponentGroupRef Id="SqlCE40Components"/>
+    </Feature>
+
+    <Icon Id="gestadh45.ico" SourceFile="$(var.gestadh45.wpf_TargetDir)gestadh45.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="gestadh45.ico" />
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.gestadh45.wpf_TargetDir)license.rtf"/>
+    
+    <UIRef Id="WixUI_FeatureTree"/>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="gestadh45.setup" />
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="Controls.dll" Guid="bd2ac012-8112-46b2-b006-169dc7d8f0db">
+        <File Id="Controls.dll" Name="Controls.dll" Source="$(var.gestadh45.wpf_TargetDir)Controls.dll" />
+      </Component>
+      <Component Id="RibbonControlsLibrary.dll" Guid="7f8371ac-7a88-421e-ac1f-f40d0c0e259c">
+        <File Id="RibbonControlsLibrary.dll" Name="RibbonControlsLibrary.dll" Source="$(var.gestadh45.wpf_TargetDir)RibbonControlsLibrary.dll" />
+      </Component>
+      <Component Id="Microsoft.Practices.ServiceLocation.dll" Guid="af8143ec-97be-4061-a60e-940d3a749f9c">
+        <File Id="Microsoft.Practices.ServiceLocation.dll" Name="Microsoft.Practices.ServiceLocation.dll" Source="$(var.gestadh45.wpf_TargetDir)Microsoft.Practices.ServiceLocation.dll" />
+      </Component>
+      <Component Id="Microsoft.Windows.Shell.dll" Guid="8329BD22-B8E5-4AA5-A41A-F136994D3235">
+        <File Id="Microsoft.Windows.Shell.dll" Name="Microsoft.Windows.Shell.dll" Source="$(var.gestadh45.wpf_TargetDir)Microsoft.Windows.Shell.dll" />
+      </Component>
+      <Component Id="ClosedXML.dll" Guid="bb68aff0-d9fc-4a75-99d7-259e5c371e79">
+        <File Id="ClosedXML.dll" Name="ClosedXML.dll" Source="$(var.gestadh45.wpf_TargetDir)ClosedXML.dll" />
+      </Component>
+      <Component Id="DocumentFormat.OpenXml.dll" Guid="970a5369-9b9c-474b-a634-e34d64fb4561">
+        <File Id="DocumentFormat.OpenXml.dll" Name="DocumentFormat.OpenXml.dll" Source="$(var.gestadh45.wpf_TargetDir)DocumentFormat.OpenXml.dll" />
+      </Component>
+      <Component Id="DoddleReport.dll" Guid="5ba892e6-76d4-45bd-9ef4-85c0fa4706c5">
+        <File Id="DoddleReport.dll" Name="DoddleReport.dll" Source="$(var.gestadh45.wpf_TargetDir)DoddleReport.dll" />
+      </Component>
+      <Component Id="DoddleReport.OpenXml.dll" Guid="d7f4d439-e953-45a8-9ec7-f5fcffa835e0">
+        <File Id="DoddleReport.OpenXml.dll" Name="DoddleReport.OpenXml.dll" Source="$(var.gestadh45.wpf_TargetDir)DoddleReport.OpenXml.dll" />
+      </Component>
+      <Component Id="EntityFramework.dll" Guid="eec7dc4f-6e28-4130-a161-47c03c218039">
+        <File Id="EntityFramework.dll" Name="EntityFramework.dll" Source="$(var.gestadh45.wpf_TargetDir)EntityFramework.dll" />
+      </Component>
+      <Component Id="EntityFramework.SqlServer.dll" Guid="938e7197-c84c-4ae1-9a6a-7d8a6a12d935">
+        <File Id="EntityFramework.SqlServer.dll" Name="EntityFramework.SqlServer.dll" Source="$(var.gestadh45.wpf_TargetDir)EntityFramework.SqlServer.dll" />
+      </Component>
+      <Component Id="EntityFramework.SqlServerCompact.dll" Guid="437b4b14-21cf-44f3-ab80-37ea47af5f8e">
+        <File Id="EntityFramework.SqlServerCompact.dll" Name="EntityFramework.SqlServerCompact.dll" Source="$(var.gestadh45.wpf_TargetDir)EntityFramework.SqlServerCompact.dll" />
+      </Component>
+      <Component Id="Xceed.Wpf.AvalonDock.dll" Guid="5a100966-4514-47fa-a536-07dd64824310">
+        <File Id="Xceed.Wpf.AvalonDock.dll" Name="Xceed.Wpf.AvalonDock.dll" Source="$(var.gestadh45.wpf_TargetDir)Xceed.Wpf.AvalonDock.dll" />
+      </Component>
+      <Component Id="Xceed.Wpf.AvalonDock.Themes.Aero.dll" Guid="6b8f44ca-b2ef-4798-bc13-520bac168ff6">
+        <File Id="Xceed.Wpf.AvalonDock.Themes.Aero.dll" Name="Xceed.Wpf.AvalonDock.Themes.Aero.dll" Source="$(var.gestadh45.wpf_TargetDir)Xceed.Wpf.AvalonDock.Themes.Aero.dll" />
+      </Component>
+      <Component Id="Xceed.Wpf.AvalonDock.Themes.Metro.dll" Guid="a22483b3-39ed-4aee-a0ef-7f8066eeac62">
+        <File Id="Xceed.Wpf.AvalonDock.Themes.Metro.dll" Name="Xceed.Wpf.AvalonDock.Themes.Metro.dll" Source="$(var.gestadh45.wpf_TargetDir)Xceed.Wpf.AvalonDock.Themes.Metro.dll" />
+      </Component>
+      <Component Id="Xceed.Wpf.AvalonDock.Themes.VS2010.dll" Guid="9c63283c-9552-4d2f-8f9f-69225df47cd7">
+        <File Id="Xceed.Wpf.AvalonDock.Themes.VS2010.dll" Name="Xceed.Wpf.AvalonDock.Themes.VS2010.dll" Source="$(var.gestadh45.wpf_TargetDir)Xceed.Wpf.AvalonDock.Themes.VS2010.dll" />
+      </Component>
+      <Component Id="Xceed.Wpf.DataGrid.dll" Guid="2bbb8e0f-36b5-4f4a-bf6e-6250c4097244">
+        <File Id="Xceed.Wpf.DataGrid.dll" Name="Xceed.Wpf.DataGrid.dll" Source="$(var.gestadh45.wpf_TargetDir)Xceed.Wpf.DataGrid.dll" />
+      </Component>
+      <Component Id="Xceed.Wpf.Toolkit.dll" Guid="cf351682-96c0-42f5-8bf2-d4d885d60ff4">
+        <File Id="Xceed.Wpf.Toolkit.dll" Name="Xceed.Wpf.Toolkit.dll" Source="$(var.gestadh45.wpf_TargetDir)Xceed.Wpf.Toolkit.dll" />
+      </Component>
+      <Component Id="System.Data.SqlServerCe.dll" Guid="a3848ef9-7a87-4910-bb4c-c7eabfb9882a">
+        <File Id="System.Data.SqlServerCe.dll" Name="System.Data.SqlServerCe.dll" Source="$(var.gestadh45.wpf_TargetDir)System.Data.SqlServerCe.dll" />
+      </Component>
+      <Component Id="GalaSoft.MvvmLight.Extras.WPF45.dll" Guid="0a512b65-3ebf-4260-985b-9ae8e5cde035">
+        <File Id="GalaSoft.MvvmLight.Extras.WPF45.dll" Name="GalaSoft.MvvmLight.Extras.WPF45.dll" Source="$(var.gestadh45.wpf_TargetDir)GalaSoft.MvvmLight.Extras.WPF45.dll" />
+      </Component>
+      <Component Id="GalaSoft.MvvmLight.WPF45.dll" Guid="4202cb3b-c623-4e71-909b-be9fb1125f81">
+        <File Id="GalaSoft.MvvmLight.WPF45.dll" Name="GalaSoft.MvvmLight.WPF45.dll" Source="$(var.gestadh45.wpf_TargetDir)GalaSoft.MvvmLight.WPF45.dll" />
+      </Component>
+      <Component Id="System.Windows.Interactivity.dll" Guid="497801ac-8666-487e-adb6-54651add43a6">
+        <File Id="System.Windows.Interactivity.dll" Name="System.Windows.Interactivity.dll" Source="$(var.gestadh45.wpf_TargetDir)System.Windows.Interactivity.dll" />
+      </Component>
+      <Component Id="MigraDoc.DocumentObjectModel.dll" Guid="2921f35e-3ea0-49e7-86d0-098465c6ea7b">
+        <File Id="MigraDoc.DocumentObjectModel.dll" Name="MigraDoc.DocumentObjectModel.dll" Source="$(var.gestadh45.wpf_TargetDir)MigraDoc.DocumentObjectModel.dll" />
+      </Component>
+      <Component Id="MigraDoc.Rendering.dll" Guid="d8f97cc7-fd23-42d3-881f-1050a39dcc71">
+        <File Id="MigraDoc.Rendering.dll" Name="MigraDoc.Rendering.dll" Source="$(var.gestadh45.wpf_TargetDir)MigraDoc.Rendering.dll" />
+      </Component>
+      <Component Id="PdfSharp.Charting.dll" Guid="B116BFA3-FE3C-482E-9034-F2AE0C7A0D89">
+        <File Id="PdfSharp.Charting.dll" Name="PdfSharp.Charting.dll" Source="$(var.gestadh45.wpf_TargetDir)PdfSharp.Charting.dll" />
+      </Component>
+      <Component Id="PdfSharp.dll" Guid="9d9ef9dc-f7ff-4c21-8fd3-4ac5de16e8df">
+        <File Id="PdfSharp.dll" Name="PdfSharp.dll" Source="$(var.gestadh45.wpf_TargetDir)PdfSharp.dll" />
+      </Component>
+      <Component Id="WPFToolkit.dll" Guid="8b59b15f-b94c-42fb-9248-8a7e43249a49">
+        <File Id="WPFToolkit.dll" Name="WPFToolkit.dll" Source="$(var.gestadh45.wpf_TargetDir)WPFToolkit.dll" />
+      </Component>
+      <Component Id="System.Windows.Controls.DataVisualization.Toolkit.dll" Guid="97d8f0c7-2ceb-488e-ae23-f0cde787fd16">
+        <File Id="System.Windows.Controls.DataVisualization.Toolkit.dll" Name="System.Windows.Controls.DataVisualization.Toolkit.dll" Source="$(var.gestadh45.wpf_TargetDir)System.Windows.Controls.DataVisualization.Toolkit.dll" />
+      </Component>
+      <Component Id="gestadh45.business.dll" Guid="d7911d14-0a9b-4af6-af89-844c1a69705e">
+        <File Id="gestadh45.business.dll" Name="gestadh45.business.dll" Source="$(var.gestadh45.wpf_TargetDir)gestadh45.business.dll" />
+      </Component>
+      <Component Id="gestadh45.dal.dll" Guid="31fe634d-a104-4521-ba85-59cabdd8aaf9">
+        <File Id="gestadh45.dal.dll" Name="gestadh45.dal.dll" Source="$(var.gestadh45.wpf_TargetDir)gestadh45.dal.dll" />
+      </Component>
+      <Component Id="gestadh45.model.dll" Guid="a1e111b8-500f-450b-8f7d-f0dcbd0f2df4">
+        <File Id="gestadh45.model.dll" Name="gestadh45.model.dll" Source="$(var.gestadh45.wpf_TargetDir)gestadh45.model.dll" />
+      </Component>
+      <Component Id="gestadh45.services.dll" Guid="eb0cacbf-6ceb-4900-965f-422488e0ded4">
+        <File Id="gestadh45.services.dll" Name="gestadh45.services.dll" Source="$(var.gestadh45.wpf_TargetDir)gestadh45.services.dll" />
+      </Component>
+      <Component Id="gestadh45.wpf.exe" Guid="e916ae14-a371-460e-82bd-af17b8288d20">
+        <File Id="gestadh45.wpf.exe" Name="gestadh45.wpf.exe" Source="$(var.gestadh45.wpf_TargetDir)gestadh45.wpf.exe" />
+      </Component>
+      <Component Id="gestadh45.wpf.exe.config" Guid="ecea214e-d8c6-49fa-83ac-552204ee51a1">
+        <File Id="gestadh45.wpf.exe.config" Name="gestadh45.wpf.exe.config" Source="$(var.gestadh45.wpf_TargetDir)gestadh45.wpf.exe.config" />
+      </Component>
+      <Component Id="gestadh45.ico" Guid="4231E592-2C52-4249-9029-653118B222D6">
+        <File Id="gestadh45.ico" Name="gestadh45.ico" Source="$(var.gestadh45.wpf_TargetDir)gestadh45.ico" />
+      </Component>
+      <Component Id="license.rtf" Guid="02EA27FA-F27F-4888-BC4E-4C20B908EC49">
+        <File Id="license.rtf" Name="license.rtf" Source="$(var.gestadh45.wpf_TargetDir)license.rtf" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="SqlCE40Components" Directory="INSTALLFOLDER">
+      <Component Id="sqlceca40.dll" Guid="09A8E534-8278-4FF0-9002-493720BA1664">
+        <File Id="sqlceca40" Name="sqlceca40.dll" Source="$(var.gestadh45.wpf_TargetDir)sqlceca40.dll"/>
+      </Component>
+      <Component Id="sqlcecompact40.dll" Guid="D4BA9B4C-3FBB-49E3-A756-FF2C47DAEAED">
+        <File Id="sqlcecompact40" Name="sqlcecompact40.dll" Source="$(var.gestadh45.wpf_TargetDir)sqlcecompact40.dll"/>
+      </Component>
+      <Component Id="sqlceer40EN.dll" Guid="82155373-2DF2-449C-8C24-2482E2E76905">
+        <File Id="sqlceer40EN" Name="sqlceer40EN.dll" Source="$(var.gestadh45.wpf_TargetDir)sqlceer40EN.dll"/>
+      </Component>
+      <Component Id="sqlceer40FR.dll" Guid="1FD5E10E-1EB5-4161-A11A-002563648C5A">
+        <File Id="sqlceer40FR" Name="sqlceer40FR.dll" Source="$(var.gestadh45.wpf_TargetDir)sqlceer40FR.dll"/>
+      </Component>
+      <Component Id="sqlceme40.dll" Guid="02D970B3-F963-45AB-B926-A479FF48F8A0">
+        <File Id="sqlceme40" Name="sqlceme40.dll" Source="$(var.gestadh45.wpf_TargetDir)sqlceme40.dll"/>
+      </Component>
+      <Component Id="sqlceoledb40.dll" Guid="8362A767-65CB-4B25-A1D7-B6230EAC85F4">
+        <File Id="sqlceoledb40" Name="sqlceoledb40.dll" Source="$(var.gestadh45.wpf_TargetDir)sqlceoledb40.dll"/>
+      </Component>
+      <Component Id="sqlceqp40.dll" Guid="459B8922-CF27-408F-8DE5-455790BE16BC">
+        <File Id="sqlceqp40" Name="sqlceqp40.dll" Source="$(var.gestadh45.wpf_TargetDir)sqlceqp40.dll"/>
+      </Component>
+      <Component Id="sqlcese40.dll" Guid="52B29324-0720-4DB9-AAD0-71A20BB2A190">
+        <File Id="sqlcese40" Name="sqlcese40.dll" Source="$(var.gestadh45.wpf_TargetDir)sqlcese40.dll"/>
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
