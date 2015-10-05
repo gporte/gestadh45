@@ -9,7 +9,9 @@
     <Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high" />
 
     <Feature Id="ProductFeature" Title="Gestadh45" Description="Coeur de l'application" Level="1" Absent="disallow">
+      <ComponentRef Id="gestadh45.wpf.exe"/>
       <ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut"/>
     </Feature>
 
     <Feature Id="SqlCE40" Title="SQL Server CE 4.0" Description="Installez ce composant si SQL Server CE 4.0 n'est pas déjà installé sur votre système." Level="1">
@@ -25,14 +27,37 @@
 
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
+      <!-- répertoire d'installation -->
       <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLFOLDER" Name="gestadh45.setup" />
+        <Directory Id="APPLICATIONROOTDIRECTORY" Name="Gestadh45" />
+      </Directory>
+      
+      <!-- menu démarrer -->
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="Gestadh45" />
       </Directory>
     </Directory>
+
+    <!-- répertoire d'installation + exécutable -->
+    <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
+      <Component Id="gestadh45.wpf.exe" Guid="B62A96E2-76B7-400B-893E-76214C423E90">
+        <File Id="gestadh45.wpf.exe" Source="$(var.gestadh45.wpf_TargetDir)gestadh45.wpf.exe" KeyPath="yes" Checksum="yes"/>
+      </Component>
+    </DirectoryRef>
+    
+    <!-- ajout du raccourcis du menu démarrer dans le package d'installation -->
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="C4A2BCE4-702A-404C-A9C2-E370D3855C72">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="Gestadh45" Description="Gestadh45" Target="[#gestadh45.wpf.exe]" WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+        <Shortcut Id="UninstallStartMenuShortcut" Name="Désinstaller" Description="Désinstaller l'application" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Guillaume Porte\Gestadh45" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
   </Fragment>
 
   <Fragment>
-    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+    <ComponentGroup Id="ProductComponents" Directory="APPLICATIONROOTDIRECTORY">
       <Component Id="Controls.dll" Guid="bd2ac012-8112-46b2-b006-169dc7d8f0db">
         <File Id="Controls.dll" Name="Controls.dll" Source="$(var.gestadh45.wpf_TargetDir)Controls.dll" />
       </Component>
@@ -126,9 +151,6 @@
       <Component Id="gestadh45.services.dll" Guid="eb0cacbf-6ceb-4900-965f-422488e0ded4">
         <File Id="gestadh45.services.dll" Name="gestadh45.services.dll" Source="$(var.gestadh45.wpf_TargetDir)gestadh45.services.dll" />
       </Component>
-      <Component Id="gestadh45.wpf.exe" Guid="e916ae14-a371-460e-82bd-af17b8288d20">
-        <File Id="gestadh45.wpf.exe" Name="gestadh45.wpf.exe" Source="$(var.gestadh45.wpf_TargetDir)gestadh45.wpf.exe" />
-      </Component>
       <Component Id="gestadh45.wpf.exe.config" Guid="ecea214e-d8c6-49fa-83ac-552204ee51a1">
         <File Id="gestadh45.wpf.exe.config" Name="gestadh45.wpf.exe.config" Source="$(var.gestadh45.wpf_TargetDir)gestadh45.wpf.exe.config" />
       </Component>
@@ -140,7 +162,7 @@
       </Component>
     </ComponentGroup>
 
-    <ComponentGroup Id="SqlCE40Components" Directory="INSTALLFOLDER">
+    <ComponentGroup Id="SqlCE40Components" Directory="APPLICATIONROOTDIRECTORY">
       <Component Id="sqlceca40.dll" Guid="09A8E534-8278-4FF0-9002-493720BA1664">
         <File Id="sqlceca40" Name="sqlceca40.dll" Source="$(var.gestadh45.wpf_TargetDir)sqlceca40.dll"/>
       </Component>
