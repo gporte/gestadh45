@@ -8,7 +8,7 @@
     <PropertyRef Id="WIX_IS_NETFRAMEWORK_45_OR_LATER_INSTALLED"/>
 
     <Condition Message='This setup requires Microsoft .NET Framework 4.5 or greater needs to be installed for this installation to continue.'>
-      <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_45_OR_LATER_INSTALLED <> 1]]>
+      <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_45_OR_LATER_INSTALLED]]>
     </Condition>
     
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
