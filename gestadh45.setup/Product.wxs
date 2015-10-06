@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
   <?define gestadh45.wpf_TargetDir=$(var.gestadh45.wpf.TargetDir)?>
   <Product Id="*" Name="Gestadh45" Language="1033" Codepage="1252" Version="1.0.0.0" Manufacturer="Guillaume Porte" UpgradeCode="9c33c897-f257-4f47-8fa9-9a4cbab2a590">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    
+    <PropertyRef Id="WIX_IS_NETFRAMEWORK_45_OR_LATER_INSTALLED"/>
 
+    <Condition Message='This setup requires Microsoft .NET Framework 4.5 or greater needs to be installed for this installation to continue.'>
+      <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_45_OR_LATER_INSTALLED <> 1]]>
+    </Condition>
+    
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
     <Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high" />
 
