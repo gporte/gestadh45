@@ -20,7 +20,7 @@
       <ComponentRef Id="ApplicationShortcut"/>
     </Feature>
 
-    <Feature Id="SqlCE40" Title="SQL Server CE 4.0" Description="Installez ce composant si SQL Server CE 4.0 n'est pas déjà installé sur votre système." Level="1">
+    <Feature Id="SqlCE40" Title="SQL Server CE 4.0" Description="Installez ce composant si SQL Server CE 4.0 n'est pas déjà installé sur votre système. Si vous ne savez pas, laissez l'option par défaut." Level="1">
       <ComponentGroupRef Id="SqlCE40Components"/>
     </Feature>
 

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Bundle Version="1.0.0.0" UpgradeCode="FA2D6A00-8305-4AFA-8538-813CC556D48E">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+  <Bundle Name="Gestadh45" Manufacturer="Guillaume Porte" Version="1.0.0.0" UpgradeCode="FA2D6A00-8305-4AFA-8538-813CC556D48E">
     <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />
+    
     <Chain>
       <PackageGroupRef Id="NetFx45Web"/>
-      <MsiPackage DisplayInternalUI="yes" SourceFile="..\gestadh45.setup\bin\release\gestadh45.setup.msi" />
+      <RollbackBoundary />
+      <MsiPackage Id="Product.Setup" Compressed="yes" Visible="yes" DisplayInternalUI="yes" SourceFile="..\gestadh45.setup\bin\release\gestadh45.setup.msi" />
     </Chain>
   </Bundle>
 </Wix>

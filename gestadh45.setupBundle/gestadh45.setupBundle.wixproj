@@ -7,7 +7,7 @@
     <ProjectGuid>9461fb1f-6b75-40b5-8d90-ac025cd1513c</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
     <OutputName>gestadh45.setupBundle</OutputName>
-    <OutputType>Package</OutputType>
+    <OutputType>Bundle</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
   </PropertyGroup>
