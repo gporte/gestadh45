@@ -159,10 +159,10 @@
   <data name="LibelleAbsent" xml:space="preserve">
     <value>&lt;LIBELLE ABSENT&gt;</value>
   </data>
-  <data name="Sexe_F" xml:space="preserve">
+  <data name="Sexe_Feminin" xml:space="preserve">
     <value>F</value>
   </data>
-  <data name="Sexe_M" xml:space="preserve">
+  <data name="Sexe_Masculin" xml:space="preserve">
     <value>M</value>
   </data>
 </root>
